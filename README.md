@@ -1,6 +1,6 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)]("1")
 [![GitHub release](https://img.shields.io/github/release/Naereen/StrapDown.js.svg)]("v1.0.1")
-[![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://GitHub.com/RyanBrew/BrewBot/issues/)
+[![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://GitHub.com/RyanBrew/opal/issues/)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
 
@@ -8,8 +8,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/RyanBrew/BrewBot">
-    <img src="Brew-Bot.png" alt="Logo" width="160" height="160">
+  <a href="https://github.com/RyanBrew/opal">
+    <img src="opal.png" alt="Logo" width="160" height="160">
   </a>
 </p>
 
@@ -73,7 +73,7 @@ We currently have over 30 modules, some of which include:
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/RyanBrew/BrewBot/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/RyanBrew/opal/issues) for a list of proposed features (and known issues).
 
 <!-- LICENSE -->
 ## License
@@ -82,6 +82,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 [@ryanbrwr](https://twitter.com/ryanbrwr) ||
-[My Github](https://github.com/RyanBrew/BrewBot) || 
+[My Github](https://github.com/RyanBrew/) || 
 ryanbrew13@gmail.com
 # hola
