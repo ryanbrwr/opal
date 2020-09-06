@@ -26,7 +26,7 @@ Here's why:
 * You shouldn't have to exit the tab to look up currency conversions
 * You should be able to receive push notifications directly to your phone via SMS
 
-Of course there is a ton more that will be added to Brew Bot in the near future. I will be making more updates and adding new features consistently as time goes on.
+Of course there is a ton more that will be added to Opal in the near future. I will be making more updates and adding new features consistently as time goes on.
 
 ### Built With
 
