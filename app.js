@@ -142,6 +142,6 @@ bot.on('ready', () => {
 });
  
 // LOG IN
-bot.login(process.env.BOT_TOKEN).then(() => {
+bot.login("NzUyMjkzOTI4MTU3NDQ2MTg0.X1ViUQ.lqbdJzQ0NoUfc0_pWk_yzQnTCmU").then(() => {
    console.log('authorized in all servers');
 });
