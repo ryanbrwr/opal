@@ -4,6 +4,8 @@ const bot = new Discord.Client();
 const request = require('request');
 require('dotenv').config()
 //
+
+console.log("hi")
  
 const util = require("util")
 const sms = new (require('./features/sms'))();
