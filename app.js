@@ -31,10 +31,6 @@ const geocoder = new (require('./features/geocoder'))
 const supcommunity = new (require('./features/supcommunity'))
  
 bot.on('message', (msg) => {
-   var today = new Date();
-   var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-   var dateTime = `[${date} ${time}]`;
    var config = {
        prefix: "!"
    }
@@ -42,22 +38,22 @@ bot.on('message', (msg) => {
        help.help_message(msg);
    }
    else if (msg.content.startsWith(`${config.prefix}fee`)) {
-       fee.calculate_fee(msg, group, logo_url);
+       fee.calculate_fee(msg);
    }
    else if (msg.content.startsWith(`${config.prefix}email`)) {
-       email.generate(msg, group, logo_url);
+       email.generate(msg );
    }
    else if (msg.content.startsWith(`${config.prefix}address`)) {
-       address.generate(msg, group, logo_url);
+       address.generate(msg );
    }
    else if (msg.content.startsWith(`${config.prefix}ebay`)) {
-       ebay.generate(msg, group, logo_url, guild_id);
+       ebay.generate(msg);
    }
    else if (msg.content.startsWith(`${config.prefix}meeting`)) {
-       control.meeting(msg.channel.guild, msg, guild_name, logo_url)
+       control.meeting(msg.channel.guild, msg)
    }
    else if (msg.content.startsWith(`${config.prefix}downloads`)) {
-       downloads.list(msg, guild_name, logo_url)
+       downloads.list(msg)
    }
    else if (msg.content.startsWith(`${config.prefix}delay`)) {
        delay.send(msg)
@@ -72,14 +68,14 @@ bot.on('message', (msg) => {
        geocoder.convert(msg)
    }
    else if (msg.content.startsWith(`${config.prefix}ping`)) {
-       ping.send(msg, guild_name, logo_url)
+       ping.send(msg)
    }
    else if (msg.content.startsWith(`${config.prefix}botbroker`)) {
        botbroker.scrape(msg)
    }
-   else if (msg.content.startsWith(`${config.prefix}new`)) {
-       control.ticket(guild, msg, config, msg.author, false)
-   }
+//    else if (msg.content.startsWith(`${config.prefix}new`)) {
+//        control.ticket(guild, msg, config, msg.author, false)
+//    }
    else if (msg.content.startsWith(`${config.prefix}shoe`)) {
        shoe.convert(msg)
    }
