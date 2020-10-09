@@ -15,7 +15,6 @@ phases:
   build:
     commands: 
       - echo running opal
-      - node app.js
 
 artifacts:
   files:
