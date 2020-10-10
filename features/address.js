@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 class Address {
-    async generate(msg, group, logo_url) {
+    async generate(msg) {
             msg.delete(500)
             let one = String.fromCharCode(65 + Math.round(Math.random() * 25));
             let two = Math.round(Math.random() * 9);

@@ -6,7 +6,16 @@ phases:
       - echo installing node.js
       - curl -sL https://deb.nodesource.com/setup_14.x | bash -
       - apt-get install -y nodejs
-      - sudo npm install
+
+  pre_build:
+    commands:
+      - echo installing dependencies
+      - npm install
+    
+  build:
+    commands: 
+      - echo running opal
+      - ./run.sh
 
 artifacts:
   files:
