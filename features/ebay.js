@@ -2,8 +2,10 @@ const Discord = require('discord.js')
 const request = require('request');
 const chalk = require('chalk')
 
-class Ebay {
-    async generate(msg) {
+module.exports = {
+	name: 'ebay',
+	description: 'This command will add a given amount of views to your ebay listing',
+	async execute(msg) {
         var today = new Date();
         var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -65,4 +67,3 @@ class Ebay {
         }
     }
 }
-module.exports = Ebay;

@@ -2,13 +2,16 @@ const Discord = require("discord.js")
 const ms = require("ms")
 const schedule = require("node-schedule")
 const prompts = ["What is the item you are giving away?", "How long is the giveaway? (ex. 3s, 3m, 3h, 3d)", "How many winners?"]
-class Giveaway {
-  async send(msg) {
+
+module.exports = {
+  name: 'giveaway',
+  description: 'This command will start a giveaway',
+  async execute(msg) {
     let content = msg.content.split(' ')
     let id = content[1]
     let channel = msg.guild.channels.get(id)
     if(channel){
-      const result = await this.getResponses(msg)
+      const result = await getResponses(msg)
       const embed = new Discord.RichEmbed()
         .addField("Item", result.item)
         .addField("Duration", result.duration)
@@ -39,7 +42,7 @@ class Giveaway {
           const entries = users.filter(user => !user.bot).array()
           if(giveawayMsg.embeds.length === 1){
             giveawayMsg.delete(500)
-            let winners = this.determineWinners(entries, result.winners);
+            let winners = determineWinners(entries, result.winners);
             winners = winners.map(user => user.toString()).join(' ')
             const winEmbed = new Discord.RichEmbed()
             winEmbed.setTitle(result.title)
@@ -57,7 +60,9 @@ class Giveaway {
       msg.reply(":beers: This channel does not exist");
     }
   }
-  async getResponses(msg){
+}
+
+  async function getResponses(msg){
     let validTime = /^\d+(s|m|h|d)/;
     let validNumber = /^\d+/;
     const result = {item: null, duration: 60, winners: 1}
@@ -90,7 +95,7 @@ class Giveaway {
     }
     return result
   }
-  determineWinners(users, max){
+  function determineWinners(users, max){
     if(users.length <= max) return users;
     const numbers = new Set();
     const winnersArray = [];
@@ -105,5 +110,3 @@ class Giveaway {
     }
     return winnersArray;
   }
-}
-module.exports = Giveaway
