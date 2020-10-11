@@ -3,7 +3,7 @@ let client = new CurrencyLayerClient({apiKey: 'a563c44266b73b1fdacfcbf2788400c4'
 const Discord = require("discord.js")
 
 module.exports = {
-	name: 'curr',
+	name: 'convert',
 	description: 'This command will convert the given amount from one currency to another',
 	async execute(msg) {
     let content = msg.content.split(' ')

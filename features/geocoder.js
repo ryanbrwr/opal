@@ -2,7 +2,7 @@ const NodeGeocoder = require('node-geocoder');
 const Discord = require("discord.js")
 
 module.exports = {
-  name: 'geocoder',
+  name: 'spoof',
   description: 'This command will give you the longitude and latitude of the given address',
   async execute(msg) {
     let content = msg.content.split(" ")
