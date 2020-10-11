@@ -1,6 +1,9 @@
 const Discord = require("discord.js");
-class Fee{
-  async calculate_fee(msg){
+
+module.exports = {
+  name: 'embed',
+  description: 'This command will send an embed to a given channel id with your information.',
+  async execute(msg) {
     const fees = {
       'StockX Level 1 (12.5%)': n => .125 * n,
       'StockX Level 2 (12.0%)': n => .12 * n,
@@ -46,7 +49,3 @@ class Fee{
     msg.channel.send(embed);
   }
 }
-
-
-
-module.exports = Fee;

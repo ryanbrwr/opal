@@ -2,8 +2,10 @@ const cheerio = require('cheerio')
 const axios = require('axios')
 const Discord = require("discord.js")
 
-class Botbroker {
-    async scrape(msg) {
+module.exports = {
+	name: 'botbroker',
+	description: 'This command will scrape bot broker and check the recent prices of the given bot',
+	async execute(msg) {
         if (msg.content.split(' ').length < 2) {
             const embed = new Discord.RichEmbed()
             embed.setTitle("BotBroker Prices")
@@ -123,4 +125,3 @@ class Botbroker {
         }
     }
 }
-module.exports = Botbroker;

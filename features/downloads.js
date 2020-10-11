@@ -1,6 +1,9 @@
 const Discord = require("discord.js")
-class Downloads {
-  async list(msg){
+
+module.exports = {
+	name: 'downloads',
+	description: 'This command will list the download links of all major bots',
+	async execute(msg) {
     const embed = new Discord.RichEmbed()
     embed.setTitle("Bot Download Links")
     embed.setColor('#36393F');
@@ -55,4 +58,3 @@ class Downloads {
     msg.channel.send(embed)
   }
 }
-module.exports = Downloads

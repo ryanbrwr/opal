@@ -1,7 +1,9 @@
 const Discord = require("discord.js");
-const util = require("util")
-class Help{
-  async help_message(msg) {
+
+module.exports = {
+  name: 'help',
+  description: 'This command will display this menu',
+  async execute(msg) {
     const embed1 =  new Discord.RichEmbed()
     embed1.setTitle("Help Menu - Page 1/4")
     embed1.setDescription("All commands below must be prefixed with `!`, all arguments are surrounded by `<>`")
@@ -68,4 +70,3 @@ class Help{
     })
   }
 }
-module.exports = Help;

@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports = {
 	name: 'address',
 	description: 'This command will send the user an alternate address',
-	execute(msg) {
+	async execute(msg) {
 		msg.delete(500)
             let one = String.fromCharCode(65 + Math.round(Math.random() * 25));
             let two = Math.round(Math.random() * 9);

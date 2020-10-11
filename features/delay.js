@@ -1,6 +1,9 @@
 const Discord = require("discord.js")
-class Delay {
-  send(msg) {
+
+module.exports = {
+	name: 'delay',
+	description: 'This command will tell you how much delay you should add to your tasks',
+	async execute(msg) {
     if(msg.content.split(' ').length != 3) return;
     const { content } = msg;
     const tasks = parseFloat(content.split(' ')[1])
@@ -16,4 +19,3 @@ class Delay {
     msg.channel.send(embed)
   }
 }
-module.exports = Delay
