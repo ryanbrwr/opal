@@ -49,6 +49,6 @@ bot.on('ready', () => {
 });
 
 // LOG IN
-bot.login("NzUyMDc2NDc0MDgwODIxMzg5.X1SXzA.LHwY4URJ90dudDzMdSpTwfyijkw").then(() => {
+bot.login(process.env.BOT_TOKEN).then(() => {
     console.log('authorized in all servers');
 });
