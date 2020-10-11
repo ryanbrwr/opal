@@ -65,5 +65,5 @@ const updateStatus = () => {
         members += guild.members.size
         guilds++
     })
-    bot.user.setActivity(`Serving ${members} people in ${guilds} servers`)
+    bot.user.setActivity(`${members} people in ${guilds} servers`, { type: "WATCHING" })
 }
