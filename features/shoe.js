@@ -22,6 +22,10 @@ class Shoe {
         embed.setTitle("Shoe Size Converter")
         embed.setColor('#36393F');
         embed.setDescription(`Size ${size} in ${from} is size ${new_size} in ${to}`)
+        embed.setTimestamp();
+        embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
+        embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+        embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
         msg.channel.send(embed)
       }
     }

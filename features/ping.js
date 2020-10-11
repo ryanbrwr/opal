@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
 class Ping {
-  send(msg, group_name, logo_url) {
+  send(msg) {
     const embed = new Discord.RichEmbed()
     embed.setTitle("Ping")
     embed.setColor('#36393F');

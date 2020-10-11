@@ -17,7 +17,7 @@ class Supcommunity
     else if(msg.content.split(" ")[1].toLowerCase() === "us" || msg.content.split(" ")[1].toLowerCase() === "eu" || msg.content.split(" ")[1].toLowerCase() === "jpn"){
       const base = 'https://www.supremecommunity.com'
       const region = msg.content.split(" ")[1]
-      const html1 = await axios.get(`${base}/season/spring-summer2020/times/${region}/`);
+      const html1 = await axios.get(`${base}/season/fall-winter2020/times/${region}/`);
       let $ = await cheerio.load(html1.data);
       let latest_week = $('a[class="block"]').attr("href")
       const html2 = await axios.get(`${base}${latest_week}`);
@@ -76,7 +76,7 @@ class Supcommunity
     else
     {
       const base = 'https://www.supremecommunity.com'
-      const html1 = await axios.get(`https://www.supremecommunity.com/season/spring-summer2020/droplists/`);
+      const html1 = await axios.get(`https://www.supremecommunity.com/season/fall-winter2020/droplists/`);
       let $ = await cheerio.load(html1.data);
       let latest_week = $('a[class="block"]').attr("href")
       const html2 = await axios.get(`${base}${latest_week}`);

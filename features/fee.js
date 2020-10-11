@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 class Fee{
-  async calculate_fee(msg, group, logo_url){
+  async calculate_fee(msg){
     const fees = {
       'StockX Level 1 (12.5%)': n => .125 * n,
       'StockX Level 2 (12.0%)': n => .12 * n,
@@ -39,6 +39,10 @@ class Fee{
       embed.setDescription("Please input a price")
       embed.setColor('#36393F');
     }
+    embed.setTimestamp();
+    embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
+    embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+    embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
     msg.channel.send(embed);
   }
 }
