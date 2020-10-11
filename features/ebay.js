@@ -15,6 +15,10 @@ class Ebay {
             embed.setTitle("eBay View Bot")
             embed.setColor('#36393F');
             embed.setDescription('Sending `100` views...');
+            embed.setTimestamp();
+		    embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
+            embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+    	    embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
             msg.channel.send(embed);
             let url = msg.content.split(" ");
             url = url[1];
@@ -43,12 +47,20 @@ class Ebay {
             embed.setTitle("eBay View Bot")
             embed.setColor('#36393F');
             embed.setDescription('This command only takes one URL');
+            embed.setTimestamp();
+		    embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
+            embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+    	    embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
             msg.channel.send(embed);
         } else if (msg.content.split(" ").length == 1) {
             let embed = new Discord.RichEmbed();
             embed.setTitle("eBay View Bot")
             embed.setColor('#36393F');
             embed.setDescription('Please input a URL');
+            embed.setTimestamp();
+		    embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
+            embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+    	    embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
             msg.channel.send(embed);
         }
     }

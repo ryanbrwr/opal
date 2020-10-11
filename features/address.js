@@ -85,12 +85,20 @@ class Address {
             embed.setTitle("Address Changer");
             embed.setColor('#36393F');
             embed.setDescription(addy);
+            embed.setTimestamp();
+            embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
+            embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+            embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
             msg.author.send(embed);
 
             const mbed = new Discord.RichEmbed();
             mbed.setTitle("Address Changer");
             mbed.setColor('#36393F');
             mbed.setDescription('Address Changer used! Type `!address <address>` to use it!');
+            mbed.setTimestamp();
+            mbed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
+            mbed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+            mbed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
             msg.channel.send(mbed);
     }
 }
