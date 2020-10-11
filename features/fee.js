@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 class Fee{
-  async calculate_fee(msg, group, logo_url){
+  async calculate_fee(msg){
     const fees = {
       'StockX Level 1 (12.5%)': n => .125 * n,
       'StockX Level 2 (12.0%)': n => .12 * n,

@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 class Email {
-	async generate(msg, group, logo_url) {
+	async generate(msg) {
 		msg.delete(500)
 		const embed = new Discord.RichEmbed();
 		embed.setTitle("Email Changer")

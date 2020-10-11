@@ -3,7 +3,7 @@ const request = require('request');
 const chalk = require('chalk')
 
 class Ebay {
-    async generate(msg, group, logo_url) {
+    async generate(msg) {
         var today = new Date();
         var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();

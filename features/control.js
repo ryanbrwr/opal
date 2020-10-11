@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
 class Control {
-	async add(message, id, group_name, logo_url) {
+	async add(message, id) {
 		let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(id));
 		if (!user) {
 			const err1 = new Discord.RichEmbed()
@@ -21,7 +21,7 @@ class Control {
 			message.channel.send(added);
 		}
 	}
-	async remove(message, id, group_name, logo_url) {
+	async remove(message, id) {
 		let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(id));
 		if (!user) {
 			const err1 = new Discord.RichEmbed()
@@ -42,7 +42,7 @@ class Control {
 			message.channel.send(added);
 		}
 	}
-	async archive(guild, msg, group_name, logo_url) {
+	async archive(guild, msg) {
 		let category = msg.guild.channels.find(c => c.name == "Archive" && c.type == "category")
 		if (category) {
 			msg.channel.setParent(category.id)
@@ -66,7 +66,7 @@ class Control {
 		archive.setDescription(`${msg.channel} has been archived`)
 		msg.channel.send(archive)
 	}
-	async meeting(guild, msg, group_name, logo_url) {
+	async meeting(guild, msg) {
 		if (msg.content.split(' ').length < 4) {
       const err1 = new Discord.RichEmbed()
 			err1.setColor('#36393F');

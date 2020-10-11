@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
 class Downloads {
-  async list(msg, guild_name, logo_url){
+  async list(msg){
     const embed = new Discord.RichEmbed()
     embed.setTitle("Bot Download Links")
     embed.setColor('#36393F');
