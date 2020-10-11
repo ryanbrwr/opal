@@ -45,10 +45,25 @@ bot.on('message', (msg) => {
 });
 
 bot.on('ready', () => {
-
+    updateStatus()
 });
+
+bot.on('guildMemberAdd', () => updateStatus)
+bot.on('guildMemberRemove', () => updateStatus)
+bot.on('guildCreate', () => updateStatus)
+bot.on('guildDelete', () => updateStatus)
 
 // LOG IN
 bot.login(process.env.BOT_TOKEN).then(() => {
     console.log('authorized in all servers');
 });
+
+const updateStatus = () => {
+    let members = 0;
+    let guilds = 0;
+    bot.guilds.forEach((guild) => {
+        members += guild.members.size
+        guilds++
+    })
+    bot.user.setActivity(`Serving ${members} people in ${guilds} servers`)
+}
