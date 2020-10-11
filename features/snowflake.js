@@ -8,6 +8,10 @@ class Snowflake {
     embed.setTitle("Snowflake to Timestamp")
     embed.setDescription(`The Discord Snowflake **${snowflake}** is **${timestamp}** timestamp`)
     embed.setColor("#36393F")
+    embed.setTimestamp();
+    embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
+    embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+    embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
     msg.channel.send(embed)
   }
 }
