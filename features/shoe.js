@@ -1,6 +1,9 @@
 const Discord = require("discord.js")
-class Shoe {
-  convert(msg){
+
+module.exports = {
+  name: 'shoe',
+  description: 'This command will translate shoe sizes from one size into another',
+  async execute(msg) {
     if(msg.content.split(" ").length < 4) {
       msg.channel.send("You are missing one or more parameters. Please use `!help` to see an example of this command!")
     } else {
@@ -31,4 +34,3 @@ class Shoe {
     }
   }
 }
-module.exports = Shoe

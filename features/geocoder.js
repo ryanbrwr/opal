@@ -1,7 +1,10 @@
 const NodeGeocoder = require('node-geocoder');
 const Discord = require("discord.js")
-class Geocoder {
-  async convert(msg) {
+
+module.exports = {
+  name: 'geocoder',
+  description: 'This command will give you the longitude and latitude of the given address',
+  async execute(msg) {
     let content = msg.content.split(" ")
     content.shift()
     content = content.join(' ')
@@ -25,4 +28,3 @@ class Geocoder {
     msg.channel.send(embed)
   }
 }
-module.exports = Geocoder;

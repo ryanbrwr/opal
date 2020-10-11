@@ -1,8 +1,11 @@
 const CurrencyLayerClient = require('currencylayer-client');
 let client = new CurrencyLayerClient({apiKey: 'a563c44266b73b1fdacfcbf2788400c4'});
 const Discord = require("discord.js")
-class Curr {
-  convert(msg){
+
+module.exports = {
+	name: 'curr',
+	description: 'This command will convert the given amount from one currency to another',
+	async execute(msg) {
     let content = msg.content.split(' ')
     let amt = parseFloat(content[1])
     let arg1 = content[2].toUpperCase()
@@ -75,5 +78,3 @@ class Curr {
     })
   }
 }
-
-module.exports = Curr

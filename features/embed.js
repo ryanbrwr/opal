@@ -1,47 +1,49 @@
 const Discord = require("discord.js")
 const prompts = ['What do you want the title of the embed to be?', 'What do you want the description of the embed to be?', "What do you want the color of the embed to be (must start with #)"]
-class Embed {
-    async send(msg) {
-      if(msg.content.split(' ').length == 2){
-        let channel_id = msg.content.split(' ')[1]
-        let channel = msg.guild.channels.get(channel_id)
-        if(channel){
-          let result = await this.getResponses(msg)
-          const embed = new Discord.RichEmbed()
-          embed.setTitle(result.title)
-          embed.setDescription(result.description)
-          embed.setColor(result.color)
-          channel.send(embed)
-        }
-        else {
-          msg.reply("Channel does not exist")
-        }
-      } else {
+
+module.exports = {
+  name: 'embed',
+  description: 'This command will send an embed to a given channel id with your information.',
+  async execute(msg) {
+    if (msg.content.split(' ').length == 2) {
+      let channel_id = msg.content.split(' ')[1]
+      let channel = msg.guild.channels.get(channel_id)
+      if (channel) {
+        let result = await getResponses(msg)
         const embed = new Discord.RichEmbed()
-        embed.setTitle("Error")
-        embed.setDescription("Command is missing one or more arguments")
-        embed.setColor("#36393F")
-        msg.channel.send(embed)
+        embed.setTitle(result.title)
+        embed.setDescription(result.description)
+        embed.setColor(result.color)
+        channel.send(embed)
       }
-    }
-    async getResponses(msg) {
-      const result = {title: null, description: null, color: null}
-      for(let i =0; i < prompts.length; i++){
-        await msg.reply(prompts[i])
-        const response = await msg.channel.awaitMessages(m => m.author.id === msg.author.id, {max:1});
-        let content = response.first().content;
-        if(i===0) {
-          result.title = content;
-        }
-        else if(i===1) {
-          result.description = content
-        }
-        else {
-          result.color = content
-        }
+      else {
+        msg.reply("Channel does not exist")
       }
-      return result
+    } else {
+      const embed = new Discord.RichEmbed()
+      embed.setTitle("Error")
+      embed.setDescription("Command is missing one or more arguments")
+      embed.setColor("#36393F")
+      msg.channel.send(embed)
     }
+  }
 }
 
-module.exports = Embed
+async function getResponses(msg) {
+  const result = { title: null, description: null, color: null }
+  for (let i = 0; i < prompts.length; i++) {
+    await msg.reply(prompts[i])
+    const response = await msg.channel.awaitMessages(m => m.author.id === msg.author.id, { max: 1 });
+    let content = response.first().content;
+    if (i === 0) {
+      result.title = content;
+    }
+    else if (i === 1) {
+      result.description = content
+    }
+    else {
+      result.color = content
+    }
+  }
+  return result
+}

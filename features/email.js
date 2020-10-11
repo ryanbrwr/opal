@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
-class Email {
-	async generate(msg) {
+
+module.exports = {
+	name: 'email',
+	description: 'This command will jig your email',
+	async execute(msg) {
 		msg.delete(500)
 		const embed = new Discord.RichEmbed();
 		embed.setTitle("Email Changer")
@@ -44,5 +47,3 @@ class Email {
 		}
 	}
 }
-
-module.exports = Email;

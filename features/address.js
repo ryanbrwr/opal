@@ -1,8 +1,10 @@
 const Discord = require("discord.js");
 
-class Address {
-    async generate(msg) {
-            msg.delete(500)
+module.exports = {
+	name: 'address',
+	description: 'This command will send the user an alternate address',
+	async execute(msg) {
+		msg.delete(500)
             let one = String.fromCharCode(65 + Math.round(Math.random() * 25));
             let two = Math.round(Math.random() * 9);
             let three = Math.round(Math.random() * 9);
@@ -100,6 +102,5 @@ class Address {
             mbed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
             mbed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
             msg.channel.send(mbed);
-    }
-}
-module.exports = Address;
+	},
+};
