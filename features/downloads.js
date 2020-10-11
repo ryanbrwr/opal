@@ -1,6 +1,9 @@
 const Discord = require("discord.js")
-class Downloads {
-  async list(msg, guild_name, logo_url){
+
+module.exports = {
+	name: 'downloads',
+	description: 'This command will list the download links of all major bots',
+	async execute(msg) {
     const embed = new Discord.RichEmbed()
     embed.setTitle("Bot Download Links")
     embed.setColor('#36393F');
@@ -48,7 +51,10 @@ class Downloads {
     "[Wrath](https://download.wrathbots.co/)",
       true
     )
+    embed.setTimestamp();
+    embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
+    embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+    embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
     msg.channel.send(embed)
   }
 }
-module.exports = Downloads

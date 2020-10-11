@@ -7,18 +7,18 @@ phases:
       - curl -sL https://deb.nodesource.com/setup_14.x | bash -
       - apt-get install -y nodejs
 
-    pre_build:
-      commands:
-        - echo installing dependencies
-        - npm install
+  pre_build:
+    commands:
+      - echo installing dependencies
+      - npm install
     
-    build:
-      commands: 
-        - echo running opal
-        - node app.js
+  build:
+    commands: 
+      - echo running opal
+      - ./run.sh
 
 artifacts:
   files:
     - "**/*"
-  discard-paths: node
+  discard-paths: no
   base-directory: ./

@@ -1,11 +1,13 @@
 const Discord = require("discord.js")
-class Poll {
-  async send(msg) {
+
+module.exports = {
+  name: 'poll',
+  description: 'This command will send a poll',
+  async execute(msg) {
     let content = msg.content.split(" ")
     let channel_id = content[1]
     let channel = msg.guild.channels.get(channel_id)
-    if(channel)
-    {
+    if(channel) {
       await msg.reply("What do you want to ask?")
       const response = await msg.channel.awaitMessages(m => m.author.id === msg.author.id, {max:1});
       let question = response.first().content
@@ -17,11 +19,8 @@ class Poll {
       await poll.react('👎')
       await poll.react('🤷')
       msg.reply(`All done! You can see your poll in ${channel}`)
-    }
-    else
-    {
+    } else {
       msg.reply("Channel does not exist")
     }
   }
 }
-module.exports = Poll

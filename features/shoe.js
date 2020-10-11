@@ -1,6 +1,9 @@
 const Discord = require("discord.js")
-class Shoe {
-  convert(msg){
+
+module.exports = {
+  name: 'shoe',
+  description: 'This command will translate shoe sizes from one size into another',
+  async execute(msg) {
     if(msg.content.split(" ").length < 4) {
       msg.channel.send("You are missing one or more parameters. Please use `!help` to see an example of this command!")
     } else {
@@ -22,9 +25,12 @@ class Shoe {
         embed.setTitle("Shoe Size Converter")
         embed.setColor('#36393F');
         embed.setDescription(`Size ${size} in ${from} is size ${new_size} in ${to}`)
+        embed.setTimestamp();
+        embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
+        embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+        embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
         msg.channel.send(embed)
       }
     }
   }
 }
-module.exports = Shoe

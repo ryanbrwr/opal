@@ -2,8 +2,10 @@ const cheerio = require('cheerio')
 const axios = require('axios')
 const Discord = require("discord.js")
 
-class Botbroker {
-    async scrape(msg) {
+module.exports = {
+	name: 'botbroker',
+	description: 'This command will scrape bot broker and check the recent prices of the given bot',
+	async execute(msg) {
         if (msg.content.split(' ').length < 2) {
             const embed = new Discord.RichEmbed()
             embed.setTitle("BotBroker Prices")
@@ -61,6 +63,10 @@ class Botbroker {
                 embed.setTitle("BotBroker Prices")
                 embed.setDescription("This bot is not listed on BotBroker")
                 embed.setColor("#36393F")
+                embed.setTimestamp();
+                embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
+                embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+                embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
                 msg.channel.send(embed)
             } else {
 
@@ -110,9 +116,12 @@ class Botbroker {
                 embed.addField("Lowest Ask", lowest_ask)
                 embed.addField("Highest Bid", highest_bid)
                 embed.addField("Twitter", `[@${this.twitter_username}](${this.twitter})`)
+                embed.setTimestamp();
+                embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
+                embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+                embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
                 msg.channel.send(embed)
             }
         }
     }
 }
-module.exports = Botbroker;

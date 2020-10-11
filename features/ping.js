@@ -1,6 +1,9 @@
 const Discord = require("discord.js")
-class Ping {
-  send(msg, group_name, logo_url) {
+
+module.exports = {
+  name: 'ping',
+  description: 'This command will display the latency between Discord and our servers',
+  async execute(msg) {
     const embed = new Discord.RichEmbed()
     embed.setTitle("Ping")
     embed.setColor('#36393F');
@@ -8,5 +11,3 @@ class Ping {
     msg.channel.send(embed)
   }
 }
-
-module.exports = Ping;

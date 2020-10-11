@@ -1,10 +1,10 @@
 const cheerio = require('cheerio')
 const axios = require('axios')
-const Discord = require("discord.js")
 
-class Parcel {
-  async check(msg)
-  {
+module.exports = {
+  name: 'parcel',
+  description: 'This command will display the data of the given parcel',
+  async execute(msg) {
     let content = msg.content.split(' ')
     if(content.length != 3) return
     let type = content[1]
@@ -14,4 +14,3 @@ class Parcel {
     console.log($("pre").text())
   }
 }
-module.exports = Parcel
