@@ -18,9 +18,3 @@ module.exports = {
     msg.channel.send(embed)
   }
 }
-class Snowflake {
-  convert(msg) {
-    
-  }
-}
-module.exports = Snowflake
