@@ -1,7 +1,12 @@
-[![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)]("1")
-[![GitHub release](https://img.shields.io/github/release/Naereen/StrapDown.js.svg)]("v1.0.1")
-[![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://GitHub.com/RyanBrew/opal/issues/)
+[![Release](https://img.shields.io/github/release/ryanbrew/opal.svg)](https://github.com/ryanbrew/opal/releases/latest)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+[![GitHub contributors](https://img.shields.io/github/contributors/ryanbrew/opal.svg)](https://github.com/ryanbrew/opal/releases/latest)
+[![GitHub issues](https://img.shields.io/github/issues/ryanbrew/opal.svg)](https://GitHub.com/RyanBrew/opal/issues/)
+[![Downloads](https://img.shields.io/github/downloads/ryanbrew/opal/total.svg)](https://github.com/ryanbrew/opal/releases/latest)
+[![GitHub stars](https://img.shields.io/github/stars/ryanbrew/opal.svg?style=social&label=Star)](https://github.com/ryanbrew/opal)
+[![Discord](https://discordapp.com/api/guilds/752301663510986822/widget.png)](https://discord.gg/KgbZDrS)<br>
+
+
 
 
 
@@ -61,7 +66,6 @@ These are specific instructions for forking and testing your new features.
 
 We currently have over 30 modules, some of which include:
 
-* SMS Message Notifications
 * Currency Converter
 * BotBroker Search Tool
 * Supreme Sellout and Droplist Information
