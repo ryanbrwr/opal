@@ -18,12 +18,14 @@ module.exports = {
       return
     }
 
-    const base = 'https://www.supremecommunity.com/season/fall-winter2020/droplist/'
-    const date = new Date()
-    const nextThursday = date.getDate() + (7 - date.getDay() + 4) % 7
-    const latest_week = `${date.getFullYear()}-${(date.getMonth() + 1).length === 1 ? '0' + date.getMonth() + 1 : date.getMonth() + 1}-${nextThursday.length === 1 ? '0' + nextThursday : nextThursday}`
-    const html = await axios.get(base + latest_week);
+    const base = 'https://www.supremecommunity.com'
+    let html = await axios.get(`https://www.supremecommunity.com/season/fall-winter2020/droplists/`);
+    let $ = await cheerio.load(html.data);
+    let latest_week = $('a[class="block"]').attr("href")
+
+    html = await axios.get(base + latest_week);
     $ = await cheerio.load(html.data);
+
     const items = []
     $('div[class="card-details"]').each((index, b) => {
       const card = $(b)
