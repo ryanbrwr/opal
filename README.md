@@ -61,7 +61,6 @@ These are specific instructions for forking and testing your new features.
 
 We currently have over 30 modules, some of which include:
 
-* SMS Message Notifications
 * Currency Converter
 * BotBroker Search Tool
 * Supreme Sellout and Droplist Information
