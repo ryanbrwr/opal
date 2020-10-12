@@ -22,7 +22,6 @@ module.exports = {
     const date = new Date()
     const nextThursday = date.getDate() + (7 - date.getDay() + 4) % 7
     const latest_week = `${date.getFullYear()}-${(date.getMonth() + 1).length === 1 ? '0' + date.getMonth() + 1 : date.getMonth() + 1}-${nextThursday.length === 1 ? '0' + nextThursday : nextThursday}`
-    //const latest_week = '2020-10-08'
     const html = await axios.get(base + latest_week);
     $ = await cheerio.load(html.data);
     const items = []
@@ -39,7 +38,7 @@ module.exports = {
     let droplistString = ''
     for (const item of items) {
       if (droplistString !== '') droplistString += '\n'
-      droplistString += `${item.name}: ${item.price ? item.price : '**price unknown**'}`
+      droplistString += `${item.name}: ${item.price ? item.price : '**price not known yet**'}`
     }
 
     const embed = new Discord.RichEmbed()
