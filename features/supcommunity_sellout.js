@@ -64,7 +64,7 @@ module.exports = {
     embed.setTitle("Latest Supreme Sellout Times")
     
     for (let index = 0; index < items.length; index++) {
-      const item = items[index];
+      const item = items[index]
       embed.addField(`#${index+1}`, `${item.name} | ${item.colourway}`)
     }
 
