@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports = {
-  name: 'embed',
+  name: 'fee',
   description: 'This command will send an embed to a given channel id with your information.',
   async execute(msg) {
     const fees = {
