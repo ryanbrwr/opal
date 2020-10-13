@@ -35,10 +35,12 @@ module.exports = {
 
     const base = 'https://www.supremecommunity.com'
     const region = args[1]
-    const date = new Date()
-    const lastThursday = date.getDate() - (7 - date.getDay())
-    const last_week = `${date.getFullYear()}-${(date.getMonth() + 1).length === 1 ? '0' + date.getMonth() + 1 : date.getMonth() + 1}-${lastThursday.toString().length === 1 ? '0' + lastThursday : lastThursday}`
-    const html = await axios.get(`${base}/season/fall-winter2020/times/${region}/${last_week}`);
+
+    let html = await axios.get(`${base}/season/fall-winter2020/times/${region}`);
+    let $ = await cheerio.load(html.data);
+    let last_week = $('a[class="block"]').attr("href")
+
+    html = await axios.get(`${base}${last_week}`);
     $ = await cheerio.load(html.data);
 
     const items = []
@@ -62,8 +64,8 @@ module.exports = {
     embed.setTitle("Latest Supreme Sellout Times")
     
     for (let index = 0; index < items.length; index++) {
-      const item = items[index];
-      embed.addField(`#${index+1}`, `${item.name}|${item.colourway}`)
+      const item = items[index]
+      embed.addField(`#${index+1}`, `${item.name} | ${item.colourway}`)
     }
 
     embed.setColor("#36393F")
