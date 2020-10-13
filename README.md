@@ -2,7 +2,6 @@
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![GitHub contributors](https://img.shields.io/github/contributors/ryanbrew/opal.svg)](https://github.com/ryanbrew/opal/releases/latest)
 [![GitHub issues](https://img.shields.io/github/issues/ryanbrew/opal.svg)](https://GitHub.com/RyanBrew/opal/issues/)
-[![Downloads](https://img.shields.io/github/downloads/ryanbrew/opal/total.svg)](https://github.com/ryanbrew/opal/releases/latest)
 [![GitHub stars](https://img.shields.io/github/stars/ryanbrew/opal.svg?style=social&label=Star)](https://github.com/ryanbrew/opal)
 [![Discord](https://discordapp.com/api/guilds/752301663510986822/widget.png)](https://discord.gg/KgbZDrS)<br>
 
@@ -14,7 +13,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/RyanBrew/opal">
-    <img src="opal.png" alt="Logo" width="320" height="200">
+    <img src="opal_logo.png" alt="Logo" width="128" height="128">
   </a>
 </p>
 
@@ -22,7 +21,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-[Invite Link](https://discord.com/api/oauth2/authorize?client_id=711827507241943040&permissions=8&scope=bot)
+[Invite Opal](https://discord.com/api/oauth2/authorize?client_id=752293928157446184&permissions=8&scope=bot)
 
 This project started out in January of 2020 and aims to provide the best tools for sneaker groups. I was in a group myself, and realized that people could truly benefit from an all in one discord bot.  
 
