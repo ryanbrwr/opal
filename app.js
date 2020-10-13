@@ -5,15 +5,12 @@ const bot = new Discord.Client();
 const fs = require('fs');
 
 require('dotenv').config();
-//
 
 // Command handler setup
 const PREFIX = '!';
-
 bot.commands = new Discord.Collection();
 
 const featureFiles = fs.readdirSync('./features').filter(file => file.endsWith('.js'));
-
 for (const file of featureFiles) {
     const feature = require(`./features/${file}`);
     bot.commands.set(feature.name, feature);

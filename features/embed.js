@@ -3,7 +3,7 @@ const prompts = ['What do you want the title of the embed to be?', 'What do you 
 
 module.exports = {
   name: 'embed',
-  description: 'This command will send an embed to a given channel id with your information.',
+  description: 'This command will create a new embed`!embed <channel_id>`\nexample: `!embed 710705901941555250`',
   async execute(msg) {
     if (msg.content.split(' ').length == 2) {
       let channel_id = msg.content.split(' ')[1]

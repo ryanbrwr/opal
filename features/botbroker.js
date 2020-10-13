@@ -4,7 +4,7 @@ const Discord = require("discord.js")
 
 module.exports = {
 	name: 'botbroker',
-	description: 'This command will scrape bot broker and check the recent prices of the given bot',
+	description: 'This command will scrape bot broker and check the recent prices of the given bot\n`!botbroker <bot>`\nexample: `!botbroker cyber',
 	async execute(msg) {
         if (msg.content.split(' ').length < 2) {
             const embed = new Discord.RichEmbed()

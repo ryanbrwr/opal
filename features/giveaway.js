@@ -5,7 +5,7 @@ const prompts = ["What is the item you are giving away?", "How long is the givea
 
 module.exports = {
   name: 'giveaway',
-  description: 'This command will start a giveaway',
+  description: 'This command will start a giveaway in the specified channel\n`!giveaway <channel_id>`\nexample: `!giveaway 710705901941555250`',
   async execute(msg) {
     let content = msg.content.split(' ')
     let id = content[1]
