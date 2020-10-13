@@ -42,6 +42,7 @@ module.exports = {
     embed4.addField("Spoof Location", "This command will convert the given location to latitude and longitude\n`!spoof <location>`\nexample: `!spoof New York City`")
     embed4.addField("Supreme Sellout Times", "This command will send the 5 items that sold out quickest in the most recent supreme drop\n`!sellout <region>`\nexample: `!sellout us`")
     embed4.addField("Supreme Droplist", "This command will send the latest Supreme droplist\n`!droplist`\nexample: `!droplist`")
+    embed4.addField("Timezone List", "This command will give you the current time all over the world\n`!time`\nexample: `!time`")
     embed4.setColor("#36393F")
 
     let embeds = [embed1, embed2, embed3, embed4]
