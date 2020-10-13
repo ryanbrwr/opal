@@ -3,9 +3,9 @@ const Discord = require("discord.js")
 
 module.exports = {
   name: 'spoof',
-  description: 'This command will give you the longitude and latitude of the given address',
+  description: 'This command will give you the longitude and latitude of the given address\n`!spoof <address>`\nexample: `!spoof Wall St`',
   async execute(msg) {
-    let content = msg.content.split(" ")
+    let content = msg.content.split(' ')
     content.shift()
     content = content.join(' ')
     const options = {

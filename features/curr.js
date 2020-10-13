@@ -4,7 +4,7 @@ const Discord = require("discord.js")
 
 module.exports = {
 	name: 'convert',
-	description: 'This command will convert the given amount from one currency to another',
+	description: 'This command will convert currency\n`!convert <amount> <from> <to>`\nexample: `!convert 200 USD EUR`',
 	async execute(msg) {
     let content = msg.content.split(' ')
     let amt = parseFloat(content[1])

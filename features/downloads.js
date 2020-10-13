@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 
 module.exports = {
 	name: 'downloads',
-	description: 'This command will list the download links of all major bots',
+	description: 'This command will list the download links of all major bots\n`!downloads`\nexample: `!downloads`',
 	async execute(msg) {
     const embed = new Discord.RichEmbed()
     embed.setTitle("Bot Download Links")

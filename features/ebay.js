@@ -4,7 +4,7 @@ const chalk = require('chalk')
 
 module.exports = {
 	name: 'ebay',
-	description: 'This command will add a given amount of views to your ebay listing',
+	description: 'This command will add 100 views to an eBay listing\n`!ebay <link>`\nexample: `!ebay https://www.ebay.com/xxxxxxxx`',
 	async execute(msg) {
         var today = new Date();
         var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();

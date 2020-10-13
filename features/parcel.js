@@ -3,7 +3,7 @@ const axios = require('axios')
 
 module.exports = {
   name: 'parcel',
-  description: 'This command will display the data of the given parcel',
+  description: 'This command will display the data of the given parcel\n`!parcel <tracking>`\nexample: `!parcel x`',
   async execute(msg) {
     let content = msg.content.split(' ')
     if(content.length != 3) return

@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 
 module.exports = {
   name: 'snowflake',
-  description: 'This command will translate a snowflake into a timestamp',
+  description: 'This command will convert the given discord snowflake to a UTC timestamp\n`!snowflake <id>`\nexample: `!snowflake 710705901941555250`',
   async execute(msg) {
     if(msg.content.split(' ').length != 2) return;
     let snowflake = parseFloat(msg.content.split(" ")[1])
