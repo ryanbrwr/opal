@@ -49,7 +49,10 @@ bot.on('guildMemberAdd', (member) => {
     updateStatus();
     welcomeUser(member);
 });
-bot.on('guildMemberRemove', () => updateStatus())
+bot.on('guildMemberRemove', (member) => {
+    updateStatus()
+    thankUser(member)
+})
 bot.on('guildCreate', () => updateStatus())
 bot.on('guildDelete', () => updateStatus())
 
@@ -71,7 +74,18 @@ const updateStatus = () => {
 const welcomeUser = (member) => {
     const embed = new Discord.RichEmbed();
     embed.setTitle("Opal Welcomes You")
-    embed.setDescription(`Opal would like to welcome you to *${member.guild}*! Opal is an open source discord bot for all your cook group related needs.`)
+    embed.setDescription(`Opal would like to welcome you to **${member.guild}**! Opal is an open source discord bot for all your cook group related needs.`)
+    embed.setTimestamp();
+    embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
+    embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+    embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+    member.user.send(embed)
+}
+
+const thankUser = (member) => {
+    const embed = new Discord.RichEmbed();
+    embed.setTitle("Opal Thanks You")
+    embed.setDescription(`Opal would like to thank you for being a part of **${member.guild}**! Opal is an open source discord bot for all your cook group related needs. If you are interested in using opal in your own server, or contributing to opal, the links are below! `)
     embed.setTimestamp();
     embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
     embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
