@@ -13,7 +13,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/RyanBrew/opal">
-    <img src="opal_logo.png" alt="Logo" width="64" height="64">
+    <img src="opal_logo.png" alt="Logo" width="128" height="128">
   </a>
 </p>
 
