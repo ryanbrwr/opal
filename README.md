@@ -3,7 +3,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/ryanbrew/opal.svg)](https://github.com/ryanbrew/opal/releases/latest)
 [![GitHub issues](https://img.shields.io/github/issues/ryanbrew/opal.svg)](https://GitHub.com/RyanBrew/opal/issues/)
 [![GitHub stars](https://img.shields.io/github/stars/ryanbrew/opal.svg?style=social&label=Star)](https://github.com/ryanbrew/opal)
-[![Discord](https://discordapp.com/api/guilds/752301663510986822/widget.png)](https://discord.gg/KgbZDrS)<br>
+[![Discord](https://discordapp.com/api/guilds/752301663510986822/widget.png)](https://discord.gg/KgbZDrS)
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
 
 
