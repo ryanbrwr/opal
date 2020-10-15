@@ -57,7 +57,7 @@ module.exports = {
                 const embed = new Discord.RichEmbed()
                 embed.setTitle('Shopify')
                 embed.setColor('#36393F');
-                embed.setDescription('There was a problem accessing this site.');
+                embed.setDescription(`${site} is not a shopify site. `);
                 embed.setTimestamp();
                 embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
                 embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
