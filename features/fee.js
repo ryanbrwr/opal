@@ -5,15 +5,16 @@ module.exports = {
   description: 'This command will calculate the payouts for every major platform\n`!fee <amount>`\nexample: `!fee 100`',
   async execute(msg) {
     const fees = {
-      'StockX Level 1 (12.5%)': n => .125 * n,
-      'StockX Level 2 (12.0%)': n => .12 * n,
-      'StockX Level 3 (11.5%)': n => .115 * n,
-      'StockX Level 4 (11.0%)': n => .11 * n,
-      'Goat (12.4% + $5.00)': n => 0.124 * n + 5 ,
+      'StockX Level 1 (9.5%)': n => .095 * n,
+      'StockX Level 2 (9%)': n => .09 * n,
+      'StockX Level 3 (8.5%)': n => .085 * n,
+      'StockX Level 4 (8%)': n => .08 * n,
+      'Goat 90+ (9.5% + $5.00 + 2.9%)': n => 0.095 * n + 5 + (0.905*n*0.029),
+      'Goat 70-89 (15% + $5.00 + 2.9%)': n => 0.15 * n + 5 + (0.85*n*0.029),
+      'Goat 50-69 (20% + $5.00 + 2.9%)': n => 0.20 * n + 5 + (0.80*n*0.029),
       'Ebay (12.9% + $0.30': n => 0.129 * n + 0.3,
       'Paypal (2.9% + $0.30)': n => (0.029 * n) + 0.3,
-      'Grailed USA (8.9% + $0.30)': n => 0.089 * n + 0.3,
-      'Grailed International (10.4 + $0.30)': n => 0.104*n + 0.3,
+      'Grailed (9% + 2.9%)': n => 0.089 * n + 0.911*n*0.029,
     }
     const embed = new Discord.RichEmbed();
     embed.setTitle("Fee Calculator")
