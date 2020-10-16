@@ -52,8 +52,7 @@ module.exports = {
       true
     )
     embed.setTimestamp();
-    embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite)", true)
-    embed.addField("\u200b", "[Join Server](https://bit.ly/opal-join-discord)", true)
+    embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
     embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
     msg.channel.send(embed)
   }
