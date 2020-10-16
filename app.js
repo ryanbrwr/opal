@@ -75,8 +75,8 @@ const welcomeUser = (member) => {
     embed.setTitle("Opal Welcomes You")
     embed.setDescription(`Opal would like to welcome you to **${member.guild}**! Opal is an open source discord bot for all your cook group related needs.`)
     embed.setTimestamp();
-    embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
-    embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+    embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite)", true)
+    embed.addField("\u200b", "[Join Server](https://bit.ly/opal-join-discord)", true)
     embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
     member.user.send(embed)
 }

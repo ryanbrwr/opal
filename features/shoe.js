@@ -26,8 +26,8 @@ module.exports = {
         embed.setColor('#36393F');
         embed.setDescription(`Size ${size} in ${from} is size ${new_size} in ${to}`)
         embed.setTimestamp();
-        embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
-        embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+        embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite)", true)
+        embed.addField("\u200b", "[Join Server](https://bit.ly/opal-join-discord)", true)
         embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
         msg.channel.send(embed)
       }
