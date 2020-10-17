@@ -28,15 +28,14 @@ bot.on('message', (msg) => {
     
     const args = msg.content.split(' ');
     let cmd = args.shift();
-
-    cmd = cmd.substring(PREFIX.length)
     
-    // Maybe make var for lowercase cmd or overwrite cmd, 
-    // more memory usage but less cpu cycles, (cmd.toLowerCase() is called twice)
+    // Strip pure command name, in all lowercase
+    cmd = cmd.substring(PREFIX.length).toLowerCase();
+    
     // If command doesn't exist ignore message
-    if (!bot.commands.has(cmd.toLowerCase())) return;
+    if (!bot.commands.has(cmd)) return;
 
-    const command = bot.commands.get(cmd.toLowerCase())
+    const command = bot.commands.get(cmd);
     const isAdmin = msg.member && msg.member.hasPermission("ADMINISTRATOR");
     // If user isn't admin but the command requires it return
     if (command.admin && !isAdmin) return;
