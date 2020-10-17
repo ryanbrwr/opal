@@ -22,15 +22,17 @@ bot.on('message', (msg) => {
 
     // Sender is the bot itself and should not be served
     if (msg.author.id === bot.user.id) return;
-
+    
+    // Message does not start with prefix and should be ignored
+    if (!msg.content.startsWith(PREFIX)) return;
+    
     const args = msg.content.split(' ');
     let cmd = args.shift();
 
-    // Check if command starts with prefix, if the prefix isn't present this message should be ignored
-    if (!cmd.startsWith(PREFIX)) return;
-
     cmd = cmd.substring(PREFIX.length)
-
+    
+    // Maybe make var for lowercase cmd or overwrite cmd, 
+    // more memory usage but less cpu cycles, (cmd.toLowerCase() is called twice)
     // If command doesn't exist ignore message
     if (!bot.commands.has(cmd.toLowerCase())) return;
 
