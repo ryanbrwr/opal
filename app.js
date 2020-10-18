@@ -72,12 +72,6 @@ const updateStatus = () => {
 }
 
 const welcomeUser = (member) => {
-    const embed = new Discord.RichEmbed();
-    embed.setTitle("Opal Welcomes You")
-    embed.setDescription(`Opal would like to welcome you to **${member.guild}**! Opal is an open source discord bot for all your cook group related needs.`)
-    embed.setTimestamp();
-    embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-    
-    embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
-    member.user.send(embed)
+    const message = ":wave: **Welcome to Opal!** :wave: \n\nIt seems you have joined a server I reside in. Who am I? Well I am a **100% free & open source** Discord bot to make your experience in this group seamless. We provide **over 30 features**, all of which can be tested in our support server! Do you own a group? Opal is perfect for you! Can you code or are you willing to learn? Opal has great resources for anyone looking to contribute! \n\nJoin Support Server: https://discord.gg/p8dzvk7\nFollow Opal on Twitter: https://twitter.com/OpalSource\nInvite Opal Link: https://discord.com/api/oauth2/authorize?client_id=752293928157446184&permissions=8&scope=bot"
+    member.user.send(message)
 }
