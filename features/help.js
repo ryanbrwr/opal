@@ -12,7 +12,7 @@ module.exports = {
     let currentEmbedIndex = 1
     const featureFiles = fs.readdirSync('./features').filter(file => file.endsWith('.js'));
     let currentEmbed = new Discord.RichEmbed()
-    currentEmbed.setTitle(`Help Menu - Page ${currentEmbedIndex}/${Math.ceil(featureFiles.length / 4)}`)
+    currentEmbed.setTitle(`Help Menu - Page ${currentEmbedIndex}/${Math.ceil(featureFiles.length / 5)}`)
     currentEmbed.setDescription("All commands below must be prefixed with `!`, all arguments are surrounded by `<>`")
     for (const file of featureFiles) {
       const feature = require(`./${file}`);

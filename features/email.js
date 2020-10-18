@@ -21,8 +21,8 @@ module.exports = {
 			embed.setColor('#36393F');
 			embed.setDescription(email);
 			embed.setTimestamp();
-		    embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
-          	embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+		    embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+          	
     	    embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
 			msg.author.send(embed);
 
@@ -31,8 +31,8 @@ module.exports = {
 			mbed.setColor('#36393F');
 			mbed.setDescription('Email Address Changer used! Type `!email <address>` to use it!');
 			mbed.setTimestamp();
-		    mbed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
-          	mbed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+		    mbed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+          	
     	    mbed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
 			msg.channel.send(mbed);
 		} else {
@@ -40,8 +40,8 @@ module.exports = {
 			embed.setColor('#36393F');
 			embed.setDescription('Please input one email at a time');
 			embed.setTimestamp();
-		    embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
-          	embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+		    embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+          	
     	    embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
 			msg.author.send(embed);
 		}

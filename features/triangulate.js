@@ -2,8 +2,8 @@ const NodeGeocoder = require('node-geocoder');
 const Discord = require("discord.js")
 
 module.exports = {
-  name: 'spoof',
-  description: 'This command will give you the longitude and latitude of the given address\n`!spoof <address>`\nexample: `!spoof Wall St`',
+  name: 'triangulate',
+  description: 'This command will give you the longitude and latitude of the given address\n`!triangulate <address>`\nexample: `!triangulate Wall St`',
   async execute(msg) {
     let content = msg.content.split(' ')
     content.shift()
@@ -22,8 +22,8 @@ module.exports = {
     embed.setDescription(`The coordinates for this location are **${latitude}, ${longitude}**`)
     embed.setColor("#36393F")
     embed.setTimestamp();
-    embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
-    embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+    embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+    
     embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
     msg.channel.send(embed)
   }

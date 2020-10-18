@@ -64,8 +64,8 @@ module.exports = {
                 embed.setDescription("This bot is not listed on BotBroker")
                 embed.setColor("#36393F")
                 embed.setTimestamp();
-                embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
-                embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+                embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+                
                 embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
                 msg.channel.send(embed)
             } else {
@@ -117,8 +117,8 @@ module.exports = {
                 embed.addField("Highest Bid", highest_bid)
                 embed.addField("Twitter", `[@${this.twitter_username}](${this.twitter})`)
                 embed.setTimestamp();
-                embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
-                embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+                embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+                
                 embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
                 msg.channel.send(embed)
             }

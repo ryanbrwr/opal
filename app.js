@@ -22,19 +22,20 @@ bot.on('message', (msg) => {
 
     // Sender is the bot itself and should not be served
     if (msg.author.id === bot.user.id) return;
-
+    
+    // Message does not start with prefix and should be ignored
+    if (!msg.content.startsWith(PREFIX)) return;
+    
     const args = msg.content.split(' ');
     let cmd = args.shift();
-
-    // Check if command starts with prefix, if the prefix isn't present this message should be ignored
-    if (!cmd.startsWith(PREFIX)) return;
-
-    cmd = cmd.substring(PREFIX.length)
-
+    
+    // Strip pure command name, in all lowercase
+    cmd = cmd.substring(PREFIX.length).toLowerCase();
+    
     // If command doesn't exist ignore message
-    if (!bot.commands.has(cmd.toLowerCase())) return;
+    if (!bot.commands.has(cmd)) return;
 
-    const command = bot.commands.get(cmd.toLowerCase())
+    const command = bot.commands.get(cmd);
     const isAdmin = msg.member && msg.member.hasPermission("ADMINISTRATOR");
     // If user isn't admin but the command requires it return
     if (command.admin && !isAdmin) return;
@@ -49,7 +50,9 @@ bot.on('guildMemberAdd', (member) => {
     updateStatus();
     welcomeUser(member);
 });
-bot.on('guildMemberRemove', () => updateStatus())
+bot.on('guildMemberRemove', (member) => {
+    updateStatus()
+})
 bot.on('guildCreate', () => updateStatus())
 bot.on('guildDelete', () => updateStatus())
 
@@ -69,12 +72,6 @@ const updateStatus = () => {
 }
 
 const welcomeUser = (member) => {
-    const embed = new Discord.RichEmbed();
-    embed.setTitle("Opal Welcomes You")
-    embed.setDescription(`Opal would like to welcome you to *${member.guild}*! Opal is an open source discord bot for all your cook group related needs.`)
-    embed.setTimestamp();
-    embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
-    embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
-    embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
-    member.user.send(embed)
+    const message = ":wave: **Welcome to Opal!** :wave: \n\nIt seems you have joined a server I reside in. Who am I? Well I am a **100% free & open source** Discord bot to make your experience in this group seamless. We provide **over 30 features**, all of which can be tested in our support server! Do you own a group? Opal is perfect for you! Can you code or are you willing to learn? Opal has great resources for anyone looking to contribute! \n\nJoin Support Server: https://discord.gg/p8dzvk7\nFollow Opal on Twitter: https://twitter.com/OpalSource\nInvite Opal Link: https://discord.com/api/oauth2/authorize?client_id=752293928157446184&permissions=8&scope=bot"
+    member.user.send(message)
 }

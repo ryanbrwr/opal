@@ -19,8 +19,8 @@ module.exports = {
           embed.setColor('#36393F');
           embed.setDescription(`${amt} ${arg1} is ${(r['quotes'][`USD${arg2}`] * amt).toFixed(2)} ${arg2}`)
           embed.setTimestamp();
-		      embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
-          embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+		      embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+          
     	    embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
           msg.channel.send(embed)
         }
@@ -30,8 +30,8 @@ module.exports = {
           embed.setColor('#36393F');
           embed.setDescription(`We do not currently support ${arg2}`)
           embed.setTimestamp();
-		      embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
-          embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+		      embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+          
     	    embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
           msg.channel.send(embed)
         }
@@ -44,8 +44,8 @@ module.exports = {
             embed.setColor('#36393F');
             embed.setDescription(`${amt} ${arg1} is ${(usd * r['quotes'][`USD${arg2}`]).toFixed(2)} ${arg2}`)
             embed.setTimestamp();
-            embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
-            embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+            
             embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
             msg.channel.send(embed)
           } else {
@@ -54,8 +54,8 @@ module.exports = {
               embed.setColor('#36393F');
               embed.setDescription(`We do not currently support ${arg2}`)
               embed.setTimestamp();
-              embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
-              embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+              embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+              
               embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
               msg.channel.send(embed)
           }
@@ -65,8 +65,8 @@ module.exports = {
             embed.setColor('#36393F');
             embed.setDescription(`We do not currently support ${arg1}`)
             embed.setTimestamp();
-            embed.addField("Invite Opal", "https://bit.ly/invite-opal", true)
-            embed.addField("Join the Server", "https://discord.gg/ktShq9q", true)
+            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+            
             embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
             msg.channel.send(embed)
         }
