@@ -4,6 +4,7 @@ const axios = require("axios");
 
 const fs = require('fs')
 
+const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.99 Safari/537.36' // Newest Chrome useragent, used to fake the browser for simple antibots
 const ALLOWED_FILES = ['txt'] // The file type they're allowed to send proxies in
 const MAX_FILE_SIZE = 1024 // 1 MB
 const MAX_PROXIES = 100 // Max amount of proxies they're allowed to test at once
@@ -140,7 +141,7 @@ testProxies = async (site = 'https://google.com', proxies = []) => {
     for (const proxy of proxies) {
         allTasks.push(new Promise((resolve, reject) => {
             const httpsAgent = new HttpsProxyAgent({ host: proxy.host, port: proxy.port, auth: `${proxy.user}:${proxy.pass}` })
-            const client = axios.create({ httpsAgent })
+            const client = axios.create({ httpsAgent, headers: { 'User-Agent': USER_AGENT } })
             client.get(site).then((response) => {
                 if (response.status < 400) {
                     workingProxies.push(proxy)
