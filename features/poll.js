@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 
 module.exports = {
   name: 'poll',
-  description: 'This command will send a poll with the question given\n`!poll <question>`\nexample: `!poll how is everyone doing?`',
+  description: 'This command will send a poll to the channel given\n`!poll <channelid>`\nexample: `!poll 752895041035753515`',
   async execute(msg) {
     let content = msg.content.split(" ")
     let channel_id = content[1]
