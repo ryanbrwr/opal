@@ -1,6 +1,5 @@
 const Discord = require('discord.js')
 const axios = require('axios');
-const { release } = require('os');
 
 module.exports = {
     name: 'goat',
