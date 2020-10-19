@@ -11,7 +11,10 @@ module.exports = {
             const embed = new Discord.RichEmbed();
             embed.setTitle('Error');
             embed.setDescription('Command is missing one or more arguments.\nUsage: ``!goat <product name>``');
-            embed.setColor('#36393F');
+            embed.setColor("#36393F")
+            embed.setTimestamp();
+            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+            embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
             msg.channel.send(embed);
             return;
         }
@@ -29,6 +32,9 @@ module.exports = {
             embed.setTitle('Error');
             embed.setDescription('Could not access Goat at this time. Please try again later.');
             embed.setColor('#36393F');
+            embed.setTimestamp();
+            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+            embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
             msg.channel.send(embed);
             return;
         }
@@ -37,12 +43,15 @@ module.exports = {
         let respObj = resp.data['hits'][0];
         if (respObj == null) {
              // Error occured or product was not found
-             const embed = new Discord.RichEmbed();
-             embed.setTitle('Error');
-             embed.setDescription('Product was most likely not found on Goat. Please try again later.');
-             embed.setColor('#36393F');
-             msg.channel.send(embed);
-             return;
+            const embed = new Discord.RichEmbed();
+            embed.setTitle('Error');
+            embed.setDescription('Product was most likely not found on Goat. Please try again later.');
+            embed.setColor("#36393F")
+            embed.setTimestamp();
+            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+            embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+            msg.channel.send(embed);
+            return;
         }
 
         // Make Discord response embed
@@ -67,4 +76,4 @@ module.exports = {
 
         msg.channel.send(embed);
     }
-}
+}}
