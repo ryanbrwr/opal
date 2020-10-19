@@ -22,16 +22,16 @@ bot.on('message', (msg) => {
 
     // Sender is the bot itself and should not be served
     if (msg.author.id === bot.user.id) return;
-    
+
     // Message does not start with prefix and should be ignored
     if (!msg.content.startsWith(PREFIX)) return;
-    
+
     const args = msg.content.split(' ');
     let cmd = args.shift();
-    
+
     // Strip pure command name, in all lowercase
     cmd = cmd.substring(PREFIX.length).toLowerCase();
-    
+
     // If command doesn't exist ignore message
     if (!bot.commands.has(cmd)) return;
 
@@ -50,9 +50,7 @@ bot.on('guildMemberAdd', (member) => {
     updateStatus();
     welcomeUser(member);
 });
-bot.on('guildMemberRemove', (member) => {
-    updateStatus()
-})
+bot.on('guildMemberRemove', () => updateStatus())
 bot.on('guildCreate', () => updateStatus())
 bot.on('guildDelete', () => updateStatus())
 
@@ -65,7 +63,7 @@ const updateStatus = () => {
     let members = 0;
     let guilds = 0;
     bot.guilds.forEach((guild) => {
-        members += guild.members.size
+        members += guild.memberCount
         guilds++
     })
     bot.user.setActivity(`${members} people in ${guilds} servers`, { type: "WATCHING" })

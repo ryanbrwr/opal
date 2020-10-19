@@ -11,11 +11,19 @@ const MAX_PROXIES = 100 // Max amount of proxies they're allowed to test at once
 
 module.exports = {
     name: 'proxy',
-    description: 'This command will test your proxies against the site given, if there is no site given it\'ll default to google.com\n`!proxytester <site>`\nexample: `!proxytester https://footlocker.com`',
+    description: 'This command will test your proxies against the site given, if there is no site given it\'ll default to google.com\n`!proxy <site>`\nexample: `!proxy https://footlocker.com`',
     async execute(msg) {
         let channel = msg.channel
         if (msg.channel.type !== 'dm') {
             channel = await msg.author.createDM()
+            let embed = new Discord.RichEmbed()
+            embed.setTitle("Proxy Tester")
+            embed.setDescription("A dm with instructions to use this command have been sent to you")
+            embed.setColor("#36393F")
+            embed.setTimestamp();
+            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+            embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+            msg.channel.send(embed)
         }
 
         const arguments = msg.content.split(' ')
@@ -26,7 +34,7 @@ module.exports = {
             }
         }
 
-        const embed = new Discord.RichEmbed()
+        embed = new Discord.RichEmbed()
         embed.setTitle('Proxy Tester')
         embed.setDescription(
             `Please put your proxies in here using one of the following methods
@@ -34,6 +42,10 @@ module.exports = {
         2. Send a file in here containing all proxies separated by newlines
         **Format**: \`hostname:port:user:pass\`
         `)
+        embed.setColor("#36393F")
+        embed.setTimestamp();
+        embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+        embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
         await channel.send(embed)
         getResponse(channel, msg.author.id, site)
     }
