@@ -50,9 +50,7 @@ bot.on('guildMemberAdd', (member) => {
     updateStatus();
     welcomeUser(member);
 });
-bot.on('guildMemberRemove', (member) => {
-    updateStatus()
-})
+bot.on('guildMemberRemove', () => updateStatus())
 bot.on('guildCreate', () => updateStatus())
 bot.on('guildDelete', () => updateStatus())
 
