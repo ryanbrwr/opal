@@ -63,7 +63,7 @@ const updateStatus = () => {
     let members = 0;
     let guilds = 0;
     bot.guilds.forEach((guild) => {
-        members += guild.members.size
+        members += guild.memberCount
         guilds++
     })
     bot.user.setActivity(`${members} people in ${guilds} servers`, { type: "WATCHING" })
