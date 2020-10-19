@@ -139,16 +139,20 @@ testProxies = async (site = 'https://google.com', proxies = []) => {
     const allTasks = []
     const workingProxies = []
     for (const proxy of proxies) {
-        allTasks.push(new Promise((resolve, reject) => {
+        allTasks.push(new Promise(async (resolve, reject) => {
             const httpsAgent = new HttpsProxyAgent({ host: proxy.host, port: proxy.port, auth: `${proxy.user}:${proxy.pass}` })
             const client = axios.create({ httpsAgent, headers: { 'User-Agent': USER_AGENT } })
-            client.get(site).then((response) => {
-                if (response.status < 400) {
-                    workingProxies.push(proxy)
-                    resolve()
-                    return
-                }
-            }).catch(reject)
+
+            let response = null;
+            try {
+                response = await client.get(site, { timeout: 10000 })
+            } catch (e) { }
+
+            // If status > 400 then there was an error accessing the site
+            if (response && response.status < 400) {
+                workingProxies.push(proxy)
+            }
+            resolve()
         }))
     }
     await Promise.all(allTasks)
