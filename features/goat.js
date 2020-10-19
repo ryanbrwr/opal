@@ -76,4 +76,4 @@ module.exports = {
 
         msg.channel.send(embed);
     }
-}}
+}
