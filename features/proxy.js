@@ -10,7 +10,7 @@ const MAX_FILE_SIZE = 1024 // 1 MB
 const MAX_PROXIES = 100 // Max amount of proxies they're allowed to test at once
 
 module.exports = {
-    name: 'proxytester',
+    name: 'proxy',
     description: 'This command will test your proxies against the site given, if there is no site given it\'ll default to google.com\n`!proxytester <site>`\nexample: `!proxytester https://footlocker.com`',
     async execute(msg) {
         let channel = msg.channel
