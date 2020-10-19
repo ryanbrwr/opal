@@ -16,14 +16,14 @@ module.exports = {
         let channel = msg.channel
         if (msg.channel.type !== 'dm') {
             channel = await msg.author.createDM()
-            const mbed = new Discord.RichEmbed()
-            mbed.setTitle("Proxy Tester")
-            mbed.setDescription("A dm with instructions to use this command have been sent to you")
-            mbed.setColor("#36393F")
-            mbed.setTimestamp();
-            mbed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-            mbed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
-            msg.channel.send(mbed)
+            let embed = new Discord.RichEmbed()
+            embed.setTitle("Proxy Tester")
+            embed.setDescription("A dm with instructions to use this command have been sent to you")
+            embed.setColor("#36393F")
+            embed.setTimestamp();
+            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
+            embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+            msg.channel.send(embed)
         }
 
         const arguments = msg.content.split(' ')
@@ -34,7 +34,7 @@ module.exports = {
             }
         }
 
-        const embed = new Discord.RichEmbed()
+        embed = new Discord.RichEmbed()
         embed.setTitle('Proxy Tester')
         embed.setDescription(
             `Please put your proxies in here using one of the following methods
@@ -151,16 +151,20 @@ testProxies = async (site = 'https://google.com', proxies = []) => {
     const allTasks = []
     const workingProxies = []
     for (const proxy of proxies) {
-        allTasks.push(new Promise((resolve, reject) => {
+        allTasks.push(new Promise(async (resolve, reject) => {
             const httpsAgent = new HttpsProxyAgent({ host: proxy.host, port: proxy.port, auth: `${proxy.user}:${proxy.pass}` })
             const client = axios.create({ httpsAgent, headers: { 'User-Agent': USER_AGENT } })
-            client.get(site).then((response) => {
-                if (response.status < 400) {
-                    workingProxies.push(proxy)
-                    resolve()
-                    return
-                }
-            }).catch(reject)
+
+            let response = null;
+            try {
+                response = await client.get(site, { timeout: 10000 })
+            } catch (e) { }
+
+            // If status > 400 then there was an error accessing the site
+            if (response && response.status < 400) {
+                workingProxies.push(proxy)
+            }
+            resolve()
         }))
     }
     await Promise.all(allTasks)
