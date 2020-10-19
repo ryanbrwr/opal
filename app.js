@@ -22,16 +22,16 @@ bot.on('message', (msg) => {
 
     // Sender is the bot itself and should not be served
     if (msg.author.id === bot.user.id) return;
-    
+
     // Message does not start with prefix and should be ignored
     if (!msg.content.startsWith(PREFIX)) return;
-    
+
     const args = msg.content.split(' ');
     let cmd = args.shift();
-    
+
     // Strip pure command name, in all lowercase
     cmd = cmd.substring(PREFIX.length).toLowerCase();
-    
+
     // If command doesn't exist ignore message
     if (!bot.commands.has(cmd)) return;
 
