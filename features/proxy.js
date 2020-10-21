@@ -11,6 +11,7 @@ const MAX_PROXIES = 100 // Max amount of proxies they're allowed to test at once
 
 module.exports = {
     name: 'proxy',
+    admin: false,
     description: 'This command will test your proxies against the site given, if there is no site given it\'ll default to google.com\n`!proxy <site>`\nexample: `!proxy https://footlocker.com`',
     async execute(msg) {
         let channel = msg.channel

@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'email',
+	admin: false,
 	description: 'This command will change the email given and send it to the user\n`!email <email>`\nexample: `!email brewbotio@gmail.com`',
 	async execute(msg) {
 		msg.delete(500)

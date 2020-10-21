@@ -2,6 +2,7 @@ const Discord = require("discord.js")
 
 module.exports = {
   name: 'shoe',
+  admin: false,
   description: 'This command will convert shoe sizes from different regions`!shoe <size> <from> <to>`\nexample: `!shoe 9.5 US UK`',
   async execute(msg) {
     if(msg.content.split(" ").length < 4) {

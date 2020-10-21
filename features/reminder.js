@@ -5,6 +5,7 @@ const prompts = ['What do you want to send as a reminder?', 'When do you want to
 
 module.exports = {
   name: 'reminder',
+  admin: true,
   description: 'This command will send a reminder to the specified channel\n`!reminder <channel_id>`\nexample: `!reminder 710705901941555250`',
   async execute(msg) {
     let channel_id = msg.content.split(" ")[1]

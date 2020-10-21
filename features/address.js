@@ -1,7 +1,8 @@
 const Discord = require("discord.js");
 
 module.exports = {
-	name: 'address',
+    name: 'address',
+    admin: false,
 	description: 'This command will send the user an alternate address\n`!address <address>`\nexample: `!address 100 Jones Street`',
 	async execute(msg) {
 		msg.delete(500)

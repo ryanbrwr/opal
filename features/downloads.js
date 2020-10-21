@@ -1,7 +1,8 @@
 const Discord = require("discord.js")
 
 module.exports = {
-	name: 'downloads',
+  name: 'downloads',
+  admin: false,
 	description: 'This command will list the download links of all major bots\n`!downloads`\nexample: `!downloads`',
 	async execute(msg) {
     const embed = new Discord.RichEmbed()

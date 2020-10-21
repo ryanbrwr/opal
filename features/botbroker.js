@@ -3,7 +3,8 @@ const axios = require('axios')
 const Discord = require("discord.js")
 
 module.exports = {
-	name: 'botbroker',
+    name: 'botbroker',
+    admin: false,
 	description: 'This command will scrape bot broker and check the recent prices of the given bot\n`!botbroker <bot>`\nexample: `!botbroker cyber',
 	async execute(msg) {
         if (msg.content.split(' ').length < 2) {

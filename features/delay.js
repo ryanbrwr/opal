@@ -1,7 +1,8 @@
 const Discord = require("discord.js")
 
 module.exports = {
-	name: 'delay',
+  name: 'delay',
+  admin: false,
 	description: 'This command will tell you how much delay you should add to your tasks\n`!delay <tasks> <proxies>`\nexample: `!delay 100 200`',
 	async execute(msg) {
     if(msg.content.split(' ').length != 3) return;

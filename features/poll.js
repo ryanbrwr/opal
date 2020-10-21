@@ -2,6 +2,7 @@ const Discord = require("discord.js")
 
 module.exports = {
   name: 'poll',
+  admin: true,
   description: 'This command will send a poll to the channel given\n`!poll <channelid>`\nexample: `!poll 752895041035753515`',
   async execute(msg) {
     let content = msg.content.split(" ")

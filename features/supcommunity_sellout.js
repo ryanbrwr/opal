@@ -12,6 +12,7 @@ const ALLOWED_REGIONS = [
 
 module.exports = {
   name: 'sellout',
+  admin: false,
   description: 'This command will send the 5 items that sold out quickest in the most recent supreme drop`!sellout <region>`\nexample: `!sellout us`',
   async execute(msg) {
     const args = msg.content.split(' ')

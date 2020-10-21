@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
   name: 'fee',
+  admin: false,
   description: 'This command will calculate the payouts for every major platform\n`!fee <amount>`\nexample: `!fee 100`',
   async execute(msg) {
     const fees = {

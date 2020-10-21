@@ -3,6 +3,7 @@ const axios = require('axios');
 
 module.exports = {
     name: 'goat',
+    admin: false,
     description: 'This command will fetch and display product information from Goat\n`!goat <product name>`\nexample: `!goat air force 1`',
     async execute(msg) {
         const args = msg.content.split(' ');

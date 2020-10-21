@@ -16,6 +16,7 @@ let timezones = ['America/Los_Angeles', 'America/New_York', "Europe/London", "Eu
 
 module.exports = {
     name: 'time',
+    admin: false,
     description: 'This command will list out timezones\n`!time`\nexample: `!time`',
     async execute(msg) {
         const embed = new Discord.RichEmbed()

@@ -6,6 +6,7 @@ const re = /[^0-9\/£\$]/g
 
 module.exports = {
   name: 'droplist',
+  admin: false,
   description: 'This command will send the latest Supreme droplist\n`!droplist`\nexample: `!droplist`',
   async execute(msg) {
     const args = msg.content.split(' ')

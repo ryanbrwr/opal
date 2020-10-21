@@ -4,6 +4,7 @@ const curr = require("./curr");
 
 module.exports = {
   name: 'help',
+  admin: false,
   description: 'This command will display this menu\n`!help`\nexample: `!help`',
   async execute(msg) {
     const embeds = []

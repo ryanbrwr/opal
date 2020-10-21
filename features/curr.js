@@ -3,7 +3,8 @@ let client = new CurrencyLayerClient({apiKey: 'a563c44266b73b1fdacfcbf2788400c4'
 const Discord = require("discord.js")
 
 module.exports = {
-	name: 'convert',
+  name: 'convert',
+  admin: false,
 	description: 'This command will convert currency\n`!convert <amount> <from> <to>`\nexample: `!convert 200 USD EUR`',
 	async execute(msg) {
     let content = msg.content.split(' ')

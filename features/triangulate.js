@@ -3,6 +3,7 @@ const Discord = require("discord.js")
 
 module.exports = {
   name: 'triangulate',
+  admin: false,
   description: 'This command will give you the longitude and latitude of the given address\n`!triangulate <address>`\nexample: `!triangulate Wall St`',
   async execute(msg) {
     let content = msg.content.split(' ')

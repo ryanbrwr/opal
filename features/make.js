@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
   name: 'make',
+  admin: false,
   description: 'This command will calculate what you need to price your item at in order to get your desired price. \n`!make <desired amount>`\nexample: `!make 100`',
   async execute(msg) {
     const fees = {
