@@ -12,10 +12,7 @@ module.exports = {
             const embed = new Discord.RichEmbed();
             embed.setTitle('Error');
             embed.setDescription('Command is missing one or more arguments.\nUsage: ``!stockx <product name>``');
-            embed.setColor("#36393F")
-            embed.setTimestamp();
-            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-            embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+            setBranding(embed)
             msg.channel.send(embed);
             return;
         }
@@ -32,10 +29,7 @@ module.exports = {
             const embed = new Discord.RichEmbed();
             embed.setTitle('Error');
             embed.setDescription('Could not access StockX at this time. Please try again later.');
-            embed.setColor('#36393F');
-            embed.setTimestamp();
-            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-            embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+            setBranding(embed)
             msg.channel.send(embed);
             return;
         }
@@ -47,10 +41,7 @@ module.exports = {
             const embed = new Discord.RichEmbed();
             embed.setTitle('Error');
             embed.setDescription('Product was most likely not found on StockX. Please try again later.');
-            embed.setColor("#36393F")
-            embed.setTimestamp();
-            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-            embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+            setBranding(embed)
             msg.channel.send(embed);
             return;
         }
@@ -61,19 +52,14 @@ module.exports = {
         embed.setTitle(respObj['name']);
         embed.setURL('https://stockx.com/' + respObj['url'])
 
-        embed.addField("Release Date", `${respObj['release_date']}`, true);
+        embed.addField("Release Date", `${respObj['release_date'] || 'N/A'}`, true);
         embed.addField("Color", respObj['colorway'], true);
         embed.addField('Retail Price (USD)', respObj['price'].toFixed(2), true);
         embed.addField('Highest Bid (USD)', respObj['highest_bid'].toFixed(2), true);
         embed.addField('Lowest Ask (USD)', respObj['lowest_ask'].toFixed(2), true);
         embed.addField('Last Sale (USD)', respObj['last_sale'].toFixed(2), true);
-
-        embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", false);
-        embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png");
-
         embed.setThumbnail(respObj['thumbnail_url']);
-        embed.setTimestamp();
-
+        setBranding(embed)
         msg.channel.send(embed);
     }
 }

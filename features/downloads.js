@@ -7,7 +7,6 @@ module.exports = {
 	async execute(msg) {
     const embed = new Discord.RichEmbed()
     embed.setTitle("Bot Download Links")
-    embed.setColor('#36393F');
     embed.addField("\u200b",
     "[ANB AIO](http://bit.ly/ANB-AIO-Setup)\n"+
     "[ANB AIO V2](http://downloadsv2.aiobot.com/)\n"+
@@ -52,9 +51,7 @@ module.exports = {
     "[Wrath](https://download.wrathbots.co/)",
       true
     )
-    embed.setTimestamp();
-    embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-    embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+    setBranding(embed)
     msg.channel.send(embed)
   }
 }

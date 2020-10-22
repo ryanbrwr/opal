@@ -12,10 +12,7 @@ module.exports = {
       embed.setDescription(
         `:ping_pong: Pong! ${message.createdTimestamp - msg.createdTimestamp}ms`
       );
-      embed.setColor("#36393F")
-      embed.setTimestamp();
-      embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-      embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+      setBranding(embed)
       message.edit(embed)
     })
   }

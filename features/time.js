@@ -31,12 +31,7 @@ module.exports = {
             let area = timezone.split('/')[1]
             embed.addField(area.replace('_', ' '), time);
         }))
-
-        embed.setColor("#36393F")
-        embed.setTimestamp();
-        embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-        
-        embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+        setBranding(embed)
         msg.channel.send(embed)
     }
 }

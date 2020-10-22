@@ -20,10 +20,7 @@ module.exports = {
             let embed = new Discord.RichEmbed()
             embed.setTitle("Proxy Tester")
             embed.setDescription("A dm with instructions to use this command have been sent to you")
-            embed.setColor("#36393F")
-            embed.setTimestamp();
-            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-            embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+            setBranding(embed)
             msg.channel.send(embed)
         }
 
@@ -43,10 +40,7 @@ module.exports = {
         2. Send a file in here containing all proxies separated by newlines
         **Format**: \`hostname:port:user:pass\`
         `)
-        embed.setColor("#36393F")
-        embed.setTimestamp();
-        embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-        embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+        setBranding(embed)
         await channel.send(embed)
         getResponse(channel, msg.author.id, site)
     }

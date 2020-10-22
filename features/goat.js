@@ -12,10 +12,7 @@ module.exports = {
             const embed = new Discord.RichEmbed();
             embed.setTitle('Error');
             embed.setDescription('Command is missing one or more arguments.\nUsage: ``!goat <product name>``');
-            embed.setColor("#36393F")
-            embed.setTimestamp();
-            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-            embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+            setBranding(embed)
             msg.channel.send(embed);
             return;
         }
@@ -32,10 +29,7 @@ module.exports = {
             const embed = new Discord.RichEmbed();
             embed.setTitle('Error');
             embed.setDescription('Could not access Goat at this time. Please try again later.');
-            embed.setColor('#36393F');
-            embed.setTimestamp();
-            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-            embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+            setBranding(embed)
             msg.channel.send(embed);
             return;
         }
@@ -47,10 +41,7 @@ module.exports = {
             const embed = new Discord.RichEmbed();
             embed.setTitle('Error');
             embed.setDescription('Product was most likely not found on Goat. Please try again later.');
-            embed.setColor("#36393F")
-            embed.setTimestamp();
-            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-            embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+            setBranding(embed)
             msg.channel.send(embed);
             return;
         }
@@ -70,8 +61,7 @@ module.exports = {
         embed.addField('Retail Price (USD)', (respObj['retail_price_cents_usd']/100).toFixed(2), true);
         embed.addField('Lowest Price (USD)', (respObj['lowest_price_cents_usd']/100).toFixed(2), true);
 
-        embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", false);
-        embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png");
+        setBranding(embed)
         if (respObj['has_picture']) embed.setThumbnail(respObj['main_picture_url']);
         embed.setTimestamp();
 

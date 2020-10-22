@@ -86,22 +86,14 @@ module.exports = {
             let addy = number + " " + pre_addy;
             const embed = new Discord.RichEmbed();
             embed.setTitle("Address Changer");
-            embed.setColor('#36393F');
             embed.setDescription(addy);
-            embed.setTimestamp();
-            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-            
-            embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+            setBranding(embed)
             msg.author.send(embed);
 
             const mbed = new Discord.RichEmbed();
             mbed.setTitle("Address Changer");
-            mbed.setColor('#36393F');
             mbed.setDescription('Address Changer used! Type `!address <address>` to use it!');
-            mbed.setTimestamp();
-            mbed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-            
-            mbed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+            setBranding(mbed)
             msg.channel.send(mbed);
 	},
 };

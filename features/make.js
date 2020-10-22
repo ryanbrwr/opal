@@ -21,12 +21,10 @@ module.exports = {
     embed.setTitle("Set Price At")
     if(msg.content.split(" ").length == 2){
       if(isNaN(msg.content.split(" ")[1])) {
-        embed.setColor('#36393F');
         embed.setDescription('Please input a number');
       }
       else {
         const [,number] = msg.content.split(' ');
-        embed.setColor('#36393F');
         Object.keys(fees).forEach(fee => {
           embed.addField(`${fee} Payout`, `$${Number(fees[fee](number)).toFixed(2)}`);
         });
@@ -34,20 +32,14 @@ module.exports = {
     }
     else if (msg.content.split(" ").length > 2){
       embed.setDescription("This command takes only 1 argument");
-      embed.setColor('#36393F');
     }
     else if (msg.content.split(" ").length == 1){
       embed.setDescription("Please put a price to calculate fees");
-      embed.setColor('#36393F');
     }
     else {
       embed.setDescription("Please input a price")
-      embed.setColor('#36393F');
     }
-    embed.setTimestamp();
-    embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-    
-    embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+    setBranding(embed)
     msg.channel.send(embed);
   }
 }

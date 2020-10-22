@@ -12,12 +12,8 @@ module.exports = {
         if (args.length != 2) {
             const embed = new Discord.RichEmbed()
             embed.setTitle('Shopify')
-            embed.setColor('#36393F');
             embed.setDescription('This command only takes one URL');
-            embed.setTimestamp();
-            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-            
-            embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+            setBranding(embed)
             msg.channel.send(embed);
             return
         }
@@ -25,12 +21,8 @@ module.exports = {
         if (!validProtocol.test(site)) {
             const embed = new Discord.RichEmbed()
             embed.setTitle('Shopify')
-            embed.setColor('#36393F');
             embed.setDescription('This is an invalid URL');
-            embed.setTimestamp();
-            embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-            
-            embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+            setBranding(embed)
             msg.channel.send(embed);
             return
         }
@@ -46,23 +38,13 @@ module.exports = {
                 const isShopifySite = response.request.res.responseUrl.indexOf('myshopify.com')
                 const embed = new Discord.RichEmbed()
                 embed.setTitle('Shopify')
-                embed.setColor('#36393F');
-                embed.setDescription(`${site} is ${isShopifySite ? '' : 'not'} a shopify site.`);
-                embed.setTimestamp();
-                embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-                
-                embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+                setBranding(embed)
                 message.edit(embed)
             })
             .catch(() => {
                 const embed = new Discord.RichEmbed()
                 embed.setTitle('Shopify')
-                embed.setColor('#36393F');
-                embed.setDescription(`${site} is not a shopify site. `);
-                embed.setTimestamp();
-                embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)", true)
-                
-                embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png")
+                setBranding(embed)
                 message.edit(embed)
             })
     }
