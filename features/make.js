@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports = {
   name: 'make',
   admin: false,
-  description: 'This command will calculate what you need to price your item at in order to get your desired price. \n`!make <desired amount>`\nexample: `!make 100`',
+  description: 'This command will calculate what you need to price your item at in order to get your desired payout. \n`!make <desired amount>`\nexample: `!make 100`',
   async execute(msg) {
     const fees = {
       'StockX Level 1 (9.5%)': n => 1.095 * n,
