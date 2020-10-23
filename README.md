@@ -45,6 +45,7 @@ Of course there is a ton more that will be added to Opal in the near future. I w
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
+2. Read the [Feature Template](./template.md)
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
@@ -62,18 +63,6 @@ These are specific instructions for forking and testing your new features.
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
-
-We currently have over 30 modules, some of which include:
-
-* Currency Converter
-* BotBroker Search Tool
-* Supreme Sellout and Droplist Information
-* Fee Calculator
-* Sneaker Size Converter
-* Location Spoofer
-* Many More
-
 ## Command list
 
 Opal currently supports the following commands:
