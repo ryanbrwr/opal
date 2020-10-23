@@ -48,18 +48,17 @@ module.exports = {
 
         // Make Discord response embed
         const embed = new Discord.RichEmbed();
-
         embed.setTitle(respObj['name']);
         embed.setURL('https://stockx.com/' + respObj['url'])
-
         embed.addField("Release Date", `${respObj['release_date'] || 'N/A'}`, true);
-        embed.addField("Color", respObj['colorway'], true);
+        embed.addField("Color", respObj['colorway'] || 'N/A', true);
         embed.addField('Retail Price (USD)', respObj['price'].toFixed(2), true);
         embed.addField('Highest Bid (USD)', respObj['highest_bid'].toFixed(2), true);
         embed.addField('Lowest Ask (USD)', respObj['lowest_ask'].toFixed(2), true);
         embed.addField('Last Sale (USD)', respObj['last_sale'].toFixed(2), true);
         embed.setThumbnail(respObj['thumbnail_url']);
         setBranding(embed)
+        
         msg.channel.send(embed);
     }
 }
