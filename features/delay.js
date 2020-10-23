@@ -9,7 +9,7 @@ module.exports = {
     const { content } = msg;
     const tasks = parseFloat(content.split(' ')[1])
     const proxies = parseFloat(content.split(' ')[2])
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     embed.setTitle("Delay Calculator");
     embed.setDescription(`With **${tasks}** tasks and **${proxies}** proxies, you should use a **${tasks/proxies*3500}ms** delay`)
     setBranding(embed)

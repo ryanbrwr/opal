@@ -9,7 +9,7 @@ module.exports = {
         const args = msg.content.split(' ');
         if (args.length < 2) {
             // Invalid use
-            const embed = new Discord.RichEmbed();
+            const embed = new Discord.MessageEmbed();
             embed.setTitle('Error');
             embed.setDescription('Command is missing one or more arguments.\nUsage: ``!goat <product name>``');
             setBranding(embed)
@@ -26,7 +26,7 @@ module.exports = {
         let resp = await axios.post(base, body);
         if (resp.status !== 200 || resp.data === '') {
             // Error occured
-            const embed = new Discord.RichEmbed();
+            const embed = new Discord.MessageEmbed();
             embed.setTitle('Error');
             embed.setDescription('Could not access Goat at this time. Please try again later.');
             setBranding(embed)
@@ -38,7 +38,7 @@ module.exports = {
         let respObj = resp.data['hits'][0];
         if (respObj == null) {
              // Error occured or product was not found
-            const embed = new Discord.RichEmbed();
+            const embed = new Discord.MessageEmbed();
             embed.setTitle('Error');
             embed.setDescription('Product was most likely not found on Goat. Please try again later.');
             setBranding(embed)
@@ -47,10 +47,10 @@ module.exports = {
         }
 
         // Make Discord response embed
-        const embed = new Discord.RichEmbed();
+        const embed = new Discord.MessageEmbed();
 
         embed.setTitle(respObj['name']);
-        embed.setURL('https://www.goat.com/sneakers/' + respObj['slug'])
+        embed.setURL('https://www.goat.com/sneakers/' + respObj['slug']);
         embed.addField("Brand", respObj['brand_name'], true);
         embed.addField("Color", respObj['color'], true);
 
@@ -61,9 +61,8 @@ module.exports = {
         embed.addField('Retail Price (USD)', (respObj['retail_price_cents_usd']/100).toFixed(2), true);
         embed.addField('Lowest Price (USD)', (respObj['lowest_price_cents_usd']/100).toFixed(2), true);
 
-        setBranding(embed)
+        setBranding(embed);
         if (respObj['has_picture']) embed.setThumbnail(respObj['main_picture_url']);
-        embed.setTimestamp();
 
         msg.channel.send(embed);
     }

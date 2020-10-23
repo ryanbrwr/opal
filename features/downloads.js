@@ -5,7 +5,7 @@ module.exports = {
   admin: false,
 	description: 'This command will list the download links of all major bots\n`!downloads`\nexample: `!downloads`',
 	async execute(msg) {
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     embed.setTitle("Bot Download Links")
     embed.addField("\u200b",
     "[ANB AIO](http://bit.ly/ANB-AIO-Setup)\n"+

@@ -9,7 +9,7 @@ module.exports = {
         const args = msg.content.split(' ');
         if (args.length < 2) {
             // Invalid use
-            const embed = new Discord.RichEmbed();
+            const embed = new Discord.MessageEmbed();
             embed.setTitle('Error');
             embed.setDescription('Command is missing one or more arguments.\nUsage: ``!stockx <product name>``');
             setBranding(embed)
@@ -26,7 +26,7 @@ module.exports = {
         let resp = await axios.post(base, body);
         if (resp.status !== 200 || resp.data === '') {
             // Error occured
-            const embed = new Discord.RichEmbed();
+            const embed = new Discord.MessageEmbed();
             embed.setTitle('Error');
             embed.setDescription('Could not access StockX at this time. Please try again later.');
             setBranding(embed)
@@ -38,7 +38,7 @@ module.exports = {
         let respObj = resp.data['hits'][0];
         if (respObj == null) {
              // Error occured or product was not found
-            const embed = new Discord.RichEmbed();
+            const embed = new Discord.MessageEmbed();
             embed.setTitle('Error');
             embed.setDescription('Product was most likely not found on StockX. Please try again later.');
             setBranding(embed)
@@ -47,7 +47,7 @@ module.exports = {
         }
 
         // Make Discord response embed
-        const embed = new Discord.RichEmbed();
+        const embed = new Discord.MessageEmbed();
 
         embed.setTitle(respObj['name']);
         embed.setURL('https://stockx.com/' + respObj['url'])

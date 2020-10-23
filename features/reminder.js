@@ -13,14 +13,14 @@ module.exports = {
     if (channel) {
       let content = msg.content.split(" ")
       let result = await getResponses(msg)
-      const confirmEmbed = new Discord.RichEmbed()
+      const confirmEmbed = new Discord.MessageEmbed()
       confirmEmbed.setTitle("Reminder")
       confirmEmbed.setDescription(`${msg.author} your message will be sent in ${channel}`)
       confirmEmbed.setColor("#36393F")
       msg.channel.send(confirmEmbed)
       result.endsOn = new Date(Date.now() + ms(result.duration))
       schedule.scheduleJob(result.endsOn, async () => {
-        const reminderEmbed = new Discord.RichEmbed()
+        const reminderEmbed = new Discord.MessageEmbed()
         reminderEmbed.setTitle("Reminder")
         reminderEmbed.setDescription(result.message)
         reminderEmbed.setColor("#36393F")

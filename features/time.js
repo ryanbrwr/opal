@@ -19,7 +19,7 @@ module.exports = {
     admin: false,
     description: 'This command will list out timezones\n`!time`\nexample: `!time`',
     async execute(msg) {
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
         embed.setTitle("World Clock")
         await Promise.all(timezones.map(async (timezone) => {
             const response = await axios.get(`https://worldtimeapi.org/api/timezone/${timezone}`)

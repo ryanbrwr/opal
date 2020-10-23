@@ -4,14 +4,14 @@ const prompts = ['What do you want the title of the embed to be?', 'What do you 
 module.exports = {
   name: 'embed',
   admin: true,
-  description: 'This command will create a new embed`!embed <channel_id>`\nexample: `!embed 710705901941555250`',
+  description: 'This command will create a new embed\n`!embed <channel_id>`\nexample: `!embed 710705901941555250`',
   async execute(msg) {
     if (msg.content.split(' ').length == 2) {
       let channel_id = msg.content.split(' ')[1]
       let channel = msg.guild.channels.get(channel_id)
       if (channel) {
         let result = await getResponses(msg)
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
         embed.setTitle(result.title)
         embed.setDescription(result.description)
         embed.setColor(result.color)
@@ -21,7 +21,7 @@ module.exports = {
         msg.reply("Channel does not exist")
       }
     } else {
-      const embed = new Discord.RichEmbed()
+      const embed = new Discord.MessageEmbed()
       embed.setTitle("Error")
       embed.setDescription("Command is missing one or more arguments")
       embed.setColor("#36393F")

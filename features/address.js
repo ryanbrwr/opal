@@ -84,13 +84,13 @@ module.exports = {
             }
             let pre_addy = address.join(" ");
             let addy = number + " " + pre_addy;
-            const embed = new Discord.RichEmbed();
+            const embed = new Discord.MessageEmbed();
             embed.setTitle("Address Changer");
             embed.setDescription(addy);
             setBranding(embed)
             msg.author.send(embed);
 
-            const mbed = new Discord.RichEmbed();
+            const mbed = new Discord.MessageEmbed();
             mbed.setTitle("Address Changer");
             mbed.setDescription('Address Changer used! Type `!address <address>` to use it!');
             setBranding(mbed)

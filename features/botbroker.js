@@ -8,7 +8,7 @@ module.exports = {
 	description: 'This command will scrape bot broker and check the recent prices of the given bot\n`!botbroker <bot>`\nexample: `!botbroker cyber',
 	async execute(msg) {
         if (msg.content.split(' ').length < 2) {
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
             embed.setTitle("BotBroker Prices")
             embed.setDescription("Your command is missing one or more arguments")
         } else {
@@ -59,7 +59,7 @@ module.exports = {
                 }
             })
             if (this.count == 0) {
-                const embed = new Discord.RichEmbed()
+                const embed = new Discord.MessageEmbed()
                 embed.setTitle("BotBroker Prices")
                 embed.setDescription("This bot is not listed on BotBroker")
                 setBranding(embed)
@@ -105,7 +105,7 @@ module.exports = {
                 let highest_bid = prices[1].trim()
                 let cats = bot_categories.join(' | ')
 
-                let embed = new Discord.RichEmbed()
+                let embed = new Discord.MessageEmbed()
                 embed.setTitle(bot_name)
                 embed.setURL(this.url)
                 embed.addField("Categories", cats)

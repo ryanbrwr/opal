@@ -13,7 +13,7 @@ module.exports = {
     let channel = msg.guild.channels.get(id)
     if(channel){
       const result = await getResponses(msg)
-      const embed = new Discord.RichEmbed()
+      const embed = new Discord.MessageEmbed()
         .addField("Item", result.item)
         .addField("Duration", result.duration)
         .addField("Winners", result.winners)
@@ -29,7 +29,7 @@ module.exports = {
       {
         message.delete(500)
         result.endsOn = new Date(Date.now() + ms(result.duration))
-        const giveawayEmbed = new Discord.RichEmbed()
+        const giveawayEmbed = new Discord.MessageEmbed()
         giveawayEmbed.setDescription(`**Prize**: ${result.item}\n**Number of Winners**: ${result.winners}\n**Ends On**: ${result.endsOn}\n\n**REACT WITH 🎉 TO ENTER **`)
         giveawayEmbed.setColor("#36393F")
         const giveawayMsg = await channel.send("**GIVEAWAY TIME**", giveawayEmbed);
@@ -45,7 +45,7 @@ module.exports = {
             giveawayMsg.delete(500)
             let winners = determineWinners(entries, result.winners);
             winners = winners.map(user => user.toString()).join(' ')
-            const winEmbed = new Discord.RichEmbed()
+            const winEmbed = new Discord.MessageEmbed()
             winEmbed.setTitle(result.title)
             winEmbed.setDescription(`The winner(s) of **${result.item}** are ${winners}, message ${msg.author} to claim!`)
             winEmbed.setColor("#36393F")

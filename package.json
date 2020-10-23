@@ -8,7 +8,7 @@
     "cheerio": "^1.0.0-rc.3",
     "currencylayer-client": "^1.1.0",
     "delivery-tracker": "^2.3.8",
-    "discord.js": "^11.6.4",
+    "discord.js": "^12.4.0",
     "dotenv": "^8.2.0",
     "edit-json-file": "^1.4.0",
     "https-proxy-agent": "^5.0.0",

@@ -17,7 +17,7 @@ module.exports = {
       'Paypal (2.9% + $0.30)': n => (1.029 * n) + 0.3,
       'Grailed (9% + 2.9%)': n => 1.089 * n + 1.089*n*0.029,
     }
-    const embed = new Discord.RichEmbed();
+    const embed = new Discord.MessageEmbed();
     embed.setTitle("Set Price At")
     if(msg.content.split(" ").length == 2){
       if(isNaN(msg.content.split(" ")[1])) {

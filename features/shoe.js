@@ -22,7 +22,7 @@ module.exports = {
       let acceptable = ['US', 'UK', 'EU']
       if(acceptable.includes(from) && acceptable.includes(to)){
         let new_size = size + fees[`${from}${to}`]
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
         embed.setTitle("Shoe Size Converter")
         setBranding(embed)
         msg.channel.send(embed)

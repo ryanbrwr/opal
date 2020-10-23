@@ -1,58 +1,31 @@
 const Discord = require("discord.js");
 const fs = require('fs');
-const curr = require("./curr");
+
+const featuresPerPage = 5; // the number of feature fields per page of embed
+numOfEmbeds = Math.ceil(featureFiles.length / featuresPerPage);
 
 module.exports = {
-  name: 'help',
-  admin: false,
-  description: 'This command will display this menu\n`!help`\nexample: `!help`',
-  async execute(msg) {
-    const embeds = []
+    name: 'help',
+    description: 'This command will display this menu\n`!help`\nexample: `!help`',
+    async execute(msg) {
+        let embed = makeHelpEmbed(0);
+        let message = await msg.channel.send(embed);
 
-    let fieldsAdded = 0
-    let currentEmbedIndex = 1
-    const featureFiles = fs.readdirSync('./features').filter(file => file.endsWith('.js'));
-    let currentEmbed = new Discord.RichEmbed()
-    currentEmbed.setTitle(`Help Menu - Page ${currentEmbedIndex}/${Math.ceil(featureFiles.length / 5)}`)
-    currentEmbed.setDescription("All commands below must be prefixed with `!`, all arguments are surrounded by `<>`")
-    for (const file of featureFiles) {
-      const feature = require(`./${file}`);
-      currentEmbed.addField(feature.name.substring(0, 1).toUpperCase() + feature.name.substring(1), feature.description, false)
-      fieldsAdded++
-      if (fieldsAdded === 5) {
-        fieldsAdded = 0
-        currentEmbedIndex++
-
-        embeds.push(currentEmbed)
-
-        currentEmbed = new Discord.RichEmbed()
-        currentEmbed.setTitle(`Help Menu - Page ${currentEmbedIndex}/${Math.ceil(featureFiles.length / 5)}`)
-        currentEmbed.setDescription("All commands below must be prefixed with `!`, all arguments are surrounded by `<>`")
-      }
+        await message.react('⬅️');
+        await message.react('➡️');
     }
-    embeds.push(currentEmbed)
-
-    let message = await msg.channel.send(embeds[0])
-    await message.react('⬅️')
-    await message.react('➡️')
-    const filter = (reaction, user) => {
-      return ['⬅️', '➡️'].includes(reaction.emoji.name) && !user.bot && msg.author.id === user.id
-    }
-    let i = 0;
-    const collector = message.createReactionCollector(filter)
-    collector.on("collect", (reaction, user) => {
-      let user1 = reaction.users.last()
-      reaction.remove(user1)
-      if (reaction.emoji.name === '➡️') {
-        if (i != embeds.length - 1) {
-          i = i + 1;
-        }
-      } else {
-        if (i != 0) {
-          i = i - 1;
-        }
-      }
-      message.edit(embeds[i])
-    })
-  }
 }
+
+global.makeHelpEmbed = (pageIndex) => {
+    let embed = new Discord.MessageEmbed();
+    embed.setTitle(`Help Menu - Page ${pageIndex + 1}/${numOfEmbeds}`);
+    embed.setDescription(`All commands below must be prefixed with \`${PREFIX}\`, all arguments are surrounded by \`<>\``);
+
+    for (const file of featureFiles.slice(pageIndex * featuresPerPage, (pageIndex * featuresPerPage) + featuresPerPage)) {
+        const feature = require(`./${file}`);
+        embed.addField(feature.name[0].toUpperCase() + feature.name.substring(1), feature.description, false);
+    }
+
+    return embed;
+};
+

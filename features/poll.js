@@ -12,7 +12,7 @@ module.exports = {
       await msg.reply("What do you want to ask?")
       const response = await msg.channel.awaitMessages(m => m.author.id === msg.author.id, {max:1});
       let question = response.first().content
-      const embed = new Discord.RichEmbed()
+      const embed = new Discord.MessageEmbed()
       embed.setTitle(question)
       embed.setColor("#36393F")
       let poll = await channel.send(embed)
