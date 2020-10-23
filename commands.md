@@ -1,6 +1,5 @@
-## BotBroker Command list
-
-BotBroker currently supports the following commands:
+## Command List
+Opal currently supports the following commands:
 
 * !address <address> - Displays an alternate address, e.g. ''!address 100 Jones Street' will return '100 Jones St'
 * !botbroker <bot> - Scrapes BotBroker and checks recent prices of the given bot, e.g. '!botbroker cyber' will list recent prices on the cyber bot.
