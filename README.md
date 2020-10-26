@@ -29,7 +29,7 @@ This project started out in January of 2020 and aims to provide the best tools f
 Here's why:
 * Your time should be focused on other things rather than looking for sneaker information
 * You shouldn't have to exit the tab to look up currency conversions
-* You should be able to receive push notifications directly to your phone via SMS
+* You should be able to search for sneaker prices directly from discord
 
 Of course there is a ton more that will be added to Opal in the near future. I will be making more updates and adding new features consistently as time goes on.
 
