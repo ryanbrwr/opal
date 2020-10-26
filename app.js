@@ -51,8 +51,14 @@ bot.on('guildMemberAdd', (member) => {
     welcomeUser(member);
 });
 bot.on('guildMemberRemove', () => updateStatus())
-bot.on('guildCreate', () => updateStatus())
-bot.on('guildDelete', () => updateStatus())
+bot.on('guildCreate', (guild) => {
+    updateStatus()
+    welcomeGroup(guild)
+})
+bot.on('guildDelete', (guild) => {
+    updateStatus()
+    byeGroup(guild)
+})
 
 // LOG IN
 bot.login(process.env.BOT_TOKEN).then(() => {
@@ -74,6 +80,41 @@ const welcomeUser = (member) => {
     const message = ":wave: **Welcome to Opal!** :wave: \n\nIt seems you have joined a server I reside in. Who am I? Well I am a **100% free & open source** Discord bot to make your experience in this group seamless. We provide **over 30 features**, all of which can be tested in our support server! Do you own a group? Opal is perfect for you! Can you code or are you willing to learn? Opal has great resources for anyone looking to contribute! \n\nJoin Support Server: https://discord.gg/p8dzvk7\nFollow Opal on Twitter: https://twitter.com/OpalSource\nInvite Opal Link: https://discord.com/api/oauth2/authorize?client_id=752293928157446184&permissions=8&scope=bot"
     member.user.send(message)
 }
+
+const welcomeGroup = (guild) => {
+    guilds = 0;
+    bot.guilds.forEach((guild) => {
+        guilds++
+    })
+    const embed = new Discord.RichEmbed()
+    .addField("Server Name", guild.name, true)
+    .addField("Server ID", guild.id, true)
+    .addField("Owner", `${guild.owner.user.username}#${guild.owner.user.discriminator}`, true)
+    .addField("Region", guild.region, true)
+    .addField("Members", guild.memberCount, true)
+    .addField("Server Count", guilds, true)
+    .setThumbnail(guild.iconURL)
+    .setColor("#61E786")
+    bot.channels.get('770377555089031240').send(embed)
+}
+
+const byeGroup = (guild) => {
+    guilds = 0;
+    bot.guilds.forEach((guild) => {
+        guilds++
+    })
+    const embed = new Discord.RichEmbed()
+    .addField("Server Name", guild.name, true)
+    .addField("Server ID", guild.id, true)
+    .addField("Owner", `${guild.owner.user.username}#${guild.owner.user.discriminator}`, true)
+    .addField("Region", guild.region, true)
+    .addField("Members", guild.memberCount, true)
+    .addField("Server Count", guilds, true)
+    .setThumbnail(guild.iconURL)
+    .setColor("#FF495C")
+    bot.channels.get('770377555089031240').send(embed)
+}
+
 
 global.setBranding = (embed) => {
     embed.setColor('#36393F');
