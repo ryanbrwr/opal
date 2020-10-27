@@ -18,7 +18,7 @@ module.exports = {
     const res = await geocoder.geocode(content);
     let latitude = res[0].latitude
     let longitude = res[0].longitude
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     embed.setTitle("Spoof")
     embed.setDescription(`The coordinates for this location are **${latitude}, ${longitude}**`)
     setBranding(embed)

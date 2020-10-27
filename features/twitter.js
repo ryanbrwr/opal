@@ -14,7 +14,7 @@ module.exports = {
     description: 'This command will search twitter for the given username\n`!twitter <username>`\nexample: `!twitter OpalSource`',
     async execute(msg) {
         let query = msg.content.split(' ')[1]
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
         if (query) {
             var params = {
                 q: query,

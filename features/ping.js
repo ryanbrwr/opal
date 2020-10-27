@@ -6,7 +6,7 @@ module.exports = {
   description: 'This command will display the latency between Discord and our servers\n`!ping`\nexample: `!ping`',
   async execute(msg) {
     msg.channel.send('Pinging...').then(message => {
-      const embed = new Discord.RichEmbed()
+      const embed = new Discord.MessageEmbed()
       embed.setTitle("Ping")
       embed.setColor('#36393F');
       embed.setDescription(

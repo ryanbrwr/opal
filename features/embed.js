@@ -11,7 +11,7 @@ module.exports = {
       let channel = msg.guild.channels.get(channel_id)
       if (channel) {
         let result = await getResponses(msg)
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
         embed.setTitle(result.title)
         embed.setDescription(result.description)
         embed.setColor(result.color)
@@ -21,7 +21,7 @@ module.exports = {
         msg.reply("Channel does not exist")
       }
     } else {
-      const embed = new Discord.RichEmbed()
+      const embed = new Discord.MessageEmbed()
       embed.setTitle("Error")
       embed.setDescription("Command is missing one or more arguments")
       embed.setColor("#36393F")

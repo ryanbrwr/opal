@@ -15,14 +15,14 @@ module.exports = {
     .then((r) => {
     	 if(arg1 == "USD") {
         if(r['quotes'][`USD${arg2}`]){
-          const embed = new Discord.RichEmbed()
+          const embed = new Discord.MessageEmbed()
           embed.setTitle("Currency Exchange");
           embed.setDescription(`${amt} ${arg1} is ${(r['quotes'][`USD${arg2}`] * amt).toFixed(2)} ${arg2}`)
           setBranding(embed)
           msg.channel.send(embed)
         }
         else {
-          const embed = new Discord.RichEmbed()
+          const embed = new Discord.MessageEmbed()
           embed.setTitle("Currency Exchange");
           embed.setDescription(`We do not currently support ${arg2}`)
           setBranding(embed)
@@ -32,20 +32,20 @@ module.exports = {
         if(r['quotes'][`USD${arg1}`]) {
           let usd = amt / r['quotes'][`USD${arg1}`]
           if(r['quotes'][`USD${arg2}`]){
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
             embed.setTitle("Currency Exchange");
             embed.setDescription(`${amt} ${arg1} is ${(usd * r['quotes'][`USD${arg2}`]).toFixed(2)} ${arg2}`)
             setBranding(embed)
             msg.channel.send(embed)
           } else {
-              const embed = new Discord.RichEmbed()
+              const embed = new Discord.MessageEmbed()
               embed.setTitle("Currency Exchange");
               embed.setDescription(`We do not currently support ${arg2}`)
               setBranding(embed)
               msg.channel.send(embed)
           }
         } else {
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
             embed.setTitle("Currency Exchange");
             embed.setDescription(`We do not currently support ${arg1}`)
             setBranding(embed)

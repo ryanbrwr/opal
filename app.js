@@ -1,6 +1,10 @@
 // DEPENDENCIES
 const Discord = require("discord.js");
-const bot = new Discord.Client();
+const { Client, Intents } = require('discord.js');
+const myIntents = new Intents()
+myIntents.add(Intents.ALL)
+myIntents.remove('GUILD_PRESENCES')
+const bot = new Client({ ws: { intents: myIntents } });
 
 const fs = require('fs');
 
@@ -50,7 +54,9 @@ bot.on('guildMemberAdd', (member) => {
     updateStatus();
     welcomeUser(member);
 });
+
 bot.on('guildMemberRemove', () => updateStatus())
+
 bot.on('guildCreate', (guild) => {
     updateStatus()
     welcomeGroup(guild)
@@ -68,7 +74,7 @@ bot.login(process.env.BOT_TOKEN).then(() => {
 const updateStatus = () => {
     let members = 0;
     let guilds = 0;
-    bot.guilds.forEach((guild) => {
+    bot.guilds.cache.forEach((guild) => {
         members += guild.memberCount
         guilds++
     })
@@ -76,43 +82,42 @@ const updateStatus = () => {
 }
 
 const welcomeUser = (member) => {
-    if(member.guild.id === "752301663510986822") return
     const message = ":wave: **Welcome to Opal!** :wave: \n\nIt seems you have joined a server I reside in. Who am I? Well I am a **100% free & open source** Discord bot to make your experience in this group seamless. We provide **over 30 features**, all of which can be tested in our support server! Do you own a group? Opal is perfect for you! Can you code or are you willing to learn? Opal has great resources for anyone looking to contribute! \n\nJoin Support Server: https://discord.gg/p8dzvk7\nFollow Opal on Twitter: https://twitter.com/OpalSource\nInvite Opal Link: https://discord.com/api/oauth2/authorize?client_id=752293928157446184&permissions=8&scope=bot"
     member.user.send(message)
 }
 
 const welcomeGroup = (guild) => {
     guilds = 0;
-    bot.guilds.forEach((guild) => {
+    bot.guilds.cache.forEach((guild) => {
         guilds++
     })
-    const embed = new Discord.RichEmbed()
-    .addField("Server Name", guild.name, true)
-    .addField("Server ID", guild.id, true)
-    .addField("Owner", guild.owner ? guild.owner : 'N/A', true)
-    .addField("Region", guild.region, true)
-    .addField("Members", guild.memberCount, true)
-    .addField("Server Count", guilds, true)
-    .setThumbnail(guild.iconURL)
-    .setColor("#61E786")
-    bot.channels.get('770377555089031240').send(embed)
+    const embed = new Discord.MessageEmbed()
+        .addField("Server Name", guild.name, true)
+        .addField("Server ID", guild.id, true)
+        .addField("Owner", guild.owner ? guild.owner : 'N/A', true)
+        .addField("Region", guild.region, true)
+        .addField("Members", guild.memberCount, true)
+        .addField("Server Count", guilds, true)
+        .setThumbnail(guild.iconURL)
+        .setColor("#61E786")
+    bot.channels.cache.get('770377555089031240').send(embed)
 }
 
 const byeGroup = (guild) => {
     guilds = 0;
-    bot.guilds.forEach((guild) => {
+    bot.guilds.cache.forEach((guild) => {
         guilds++
     })
-    const embed = new Discord.RichEmbed()
-    .addField("Server Name", guild.name, true)
-    .addField("Server ID", guild.id, true)
-    .addField("Owner", guild.owner ? guild.owner : 'N/A', true)
-    .addField("Region", guild.region, true)
-    .addField("Members", guild.memberCount, true)
-    .addField("Server Count", guilds, true)
-    .setThumbnail(guild.iconURL)
-    .setColor("#FF495C")
-    bot.channels.get('770377555089031240').send(embed)
+    const embed = new Discord.MessageEmbed()
+        .addField("Server Name", guild.name, true)
+        .addField("Server ID", guild.id, true)
+        .addField("Owner", guild.owner ? guild.owner : 'N/A', true)
+        .addField("Region", guild.region, true)
+        .addField("Members", guild.memberCount, true)
+        .addField("Server Count", guilds, true)
+        .setThumbnail(guild.iconURL)
+        .setColor("#FF495C")
+    bot.channels.cache.get('770377555089031240').send(embed)
 }
 
 

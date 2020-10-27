@@ -6,7 +6,7 @@ module.exports = {
 	description: 'This command will change the email given and send it to the user\n`!email <email>`\nexample: `!email brewbotio@gmail.com`',
 	async execute(msg) {
 		msg.delete(500)
-		const embed = new Discord.RichEmbed();
+		const embed = new Discord.MessageEmbed();
 		embed.setTitle("Email Changer")
 		if (msg.content.split(" ").length == 2) {
 			var one = Math.round(Math.random() * 9);
@@ -23,13 +23,13 @@ module.exports = {
 			setBranding(embed)
 			msg.author.send(embed);
 
-			const mbed = new Discord.RichEmbed();
+			const mbed = new Discord.MessageEmbed();
 			mbed.setTitle("Email Changer")
 			mbed.setDescription('Email Address Changer used! Type `!email <address>` to use it!');
 			setBranding(mbed)
 			msg.channel.send(mbed);
 		} else {
-			const embed = new Discord.RichEmbed();
+			const embed = new Discord.MessageEmbed();
 			embed.setDescription('Please input one email at a time');
 			setBranding(embed)
 			msg.author.send(embed);

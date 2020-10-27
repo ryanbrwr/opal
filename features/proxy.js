@@ -17,7 +17,7 @@ module.exports = {
         let channel = msg.channel
         if (msg.channel.type !== 'dm') {
             channel = await msg.author.createDM()
-            let embed = new Discord.RichEmbed()
+            let embed = new Discord.MessageEmbed()
             embed.setTitle("Proxy Tester")
             embed.setDescription("A dm with instructions to use this command have been sent to you")
             setBranding(embed)
@@ -32,7 +32,7 @@ module.exports = {
             }
         }
 
-        embed = new Discord.RichEmbed()
+        embed = new Discord.MessageEmbed()
         embed.setTitle('Proxy Tester')
         embed.setDescription(
             `Please put your proxies in here using one of the following methods
@@ -62,7 +62,7 @@ getResponse = async (channel, authorid, site) => {
         return
     }
 
-    const statusMsg = await channel.send(new Discord.RichEmbed().setTitle('Proxy Tester').setDescription('Your proxies are being processed'))
+    const statusMsg = await channel.send(new Discord.MessageEmbed().setTitle('Proxy Tester').setDescription('Your proxies are being processed'))
 
     let proxiesString = ''
     const proxies = []
@@ -76,7 +76,7 @@ getResponse = async (channel, authorid, site) => {
         // If the file sent is not in the right file type or its size is too big
         // return and send an error message
         if (!ALLOWED_FILES.includes(fileExtension) || attachment.filesize > MAX_FILE_SIZE) {
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
             embed.setTitle('Proxy Tester')
             embed.setDescription(
                 `Aborted! This is not a valid file type or the file is too big.
@@ -107,7 +107,7 @@ getResponse = async (channel, authorid, site) => {
 
     // If the amount of proxies given are too many return and send error message
     if (proxies.length > MAX_PROXIES) {
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
         embed.setTitle('Proxy Tester')
         embed.setDescription(`Aborted! You may only send ${MAX_PROXIES} proxies at once.`)
         channel.send(embed)
@@ -121,7 +121,7 @@ getResponse = async (channel, authorid, site) => {
         workingProxiesString += `${workingProxy.host}:${workingProxy.port}:${workingProxy.user}:${workingProxy.pass}`
     }
 
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
         .setTitle('Proxy Tester')
         .setDescription('Done! These are all the proxies that work on that site.')
 

@@ -39,7 +39,7 @@ const makeHelpEmbed = (pageIndex) => {
     featureFiles = fs.readdirSync('./features').filter(file => file.endsWith('.js'));
     numOfEmbeds = Math.ceil(featureFiles.length / featuresPerPage);
 
-    let embed = new Discord.RichEmbed();
+    let embed = new Discord.MessageEmbed();
     embed.setTitle(`Help Menu - Page ${pageIndex + 1}/${numOfEmbeds}`);
     embed.setDescription(`All commands below must be prefixed with \`!\`, all arguments are surrounded by \`<>\``); // TODO: get prefix from env
 
