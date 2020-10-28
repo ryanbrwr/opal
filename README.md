@@ -91,6 +91,7 @@ Opal currently supports the following commands:
 * !sellout - Displays the 5 most quickly sold out items from the most recent Supreme drop.
 * !time - Displays time zones.
 * !triangulate <address> - Displays the longitude and latitude of the specified address.
+* !twitter <username> - Displays information about the given username / query
 
 <!-- ROADMAP -->
 ## Roadmap
