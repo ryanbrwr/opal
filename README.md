@@ -74,6 +74,7 @@ Opal currently supports the following commands:
 * email <email> - Changes the email given and sends it to the user, e.g. '!email brewbotio@gmail.com'.
 * embed <channel_id> - Creates a new embed in the specified channel.
 * fee <amount> - Calculates the payouts for the specified amount for every major platform, e.g. '!fee 100' will subtract each platform's service fee from 100 and return the appropriate payouts.
+* funko <product name> - This command will search funko for the given product, e.g. '!funko star wars'
 * giveaway <channel_id> - Starts a giveaway in the specified channel.
 * goat <product name> - Fetches and displays product information from Goat, e.g.  '!goat air force 1'.
 * help - Displays the help menu.
