@@ -1,10 +1,7 @@
 // DEPENDENCIES
 const Discord = require("discord.js");
 const { Client, Intents } = require('discord.js');
-const myIntents = new Intents()
-myIntents.add(Intents.ALL)
-myIntents.remove('GUILD_PRESENCES')
-const bot = new Client({ ws: { intents: myIntents } });
+const bot = new Client({ ws: { intents: Intents.ALL } });
 
 const fs = require('fs');
 
