@@ -50,7 +50,7 @@ module.exports = {
         const embed = new Discord.MessageEmbed();
 
         embed.setTitle(respObj['name']);
-        embed.setURL('https://www.goat.com/sneakers/' + respObj['slug'])
+        embed.setURL('https://www.goat.com/sneakers/' + respObj['slug']);
         embed.addField("Brand", respObj['brand_name'], true);
         embed.addField("Color", respObj['color'], true);
 
@@ -61,9 +61,8 @@ module.exports = {
         embed.addField('Retail Price (USD)', (respObj['retail_price_cents_usd']/100).toFixed(2), true);
         embed.addField('Lowest Price (USD)', (respObj['lowest_price_cents_usd']/100).toFixed(2), true);
 
-        setBranding(embed)
+        setBranding(embed);
         if (respObj['has_picture']) embed.setThumbnail(respObj['main_picture_url']);
-        embed.setTimestamp();
 
         msg.channel.send(embed);
     }

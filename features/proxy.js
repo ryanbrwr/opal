@@ -56,7 +56,7 @@ getResponse = async (channel, authorid, site) => {
     const responses = await channel.awaitMessages(m => m.author.id === authorid, { max: 1 })
     const response = responses.first()
 
-    // If response doesn't exist don't do anything, this SHOULD be a useless check as it waits for messages 
+    // If response doesn't exist don't do anything, this SHOULD be a useless check as it waits for messages
     // but Node is weird sometimes it called for me
     if (!response) {
         return
@@ -132,14 +132,14 @@ getResponse = async (channel, authorid, site) => {
 
 /**
  * Checks proxies against a given site and returns the working ones
- * 
+ *
  * @param {string} site the site to check against
  * @param {Object[]} proxies the proxies to check against the site
  * @param {string} proxies[].host the hostname of the proxy
  * @param {number} proxies[].port the port of the proxy
  * @param {string} proxies[].user the username of the proxy
  * @param {string} proxies[].pass the password of the proxy
- * 
+ *
  * @returns {Object[]} The proxies that were shown to be working against the given site
  */
 testProxies = async (site = 'https://google.com', proxies = []) => {
@@ -169,7 +169,7 @@ testProxies = async (site = 'https://google.com', proxies = []) => {
 /**
  * Checks if the url given is valid and returns if it is
  * @param {string} url the url to check
- * 
+ *
  * @returns {bool} Whether or not the given url was valid
  */
 isValidWebUrl = (url) => {
