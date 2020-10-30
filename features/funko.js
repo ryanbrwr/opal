@@ -33,7 +33,8 @@ module.exports = {
                         let month = releaseDate.getMonth()
                         let year = releaseDate.getFullYear()
 
-                        embed.setTitle(`[${hits[0].title}](https://www.funko.com/shop/details/${hits[0].handle})`, true)
+                        embed.setTitle(hits[0].title)
+                        embed.setURL(`https://www.funko.com/shop/details/${hits[0].handle}`)
                         embed.addField('Price', formatter.format(hits[0].price), true)
                         embed.addField('ID', hits[0].uid, true)
                         embed.addField('Product Type', hits[0].productType, true)
