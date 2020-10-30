@@ -30,7 +30,7 @@ module.exports = {
     $('div[class="card-details"]').each((index, b) => {
       const card = $(b)
       const name = card.attr('data-itemname')
-      const price = card.find('span[class="label-price"]').text().replace(re,"")
+      const price = card.find('span[class="label-price"]').text().replace(re, "")
       items.push({
         name,
         price

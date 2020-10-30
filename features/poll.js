@@ -8,9 +8,9 @@ module.exports = {
     let content = msg.content.split(" ")
     let channel_id = content[1]
     let channel = msg.guild.channels.get(channel_id)
-    if(channel) {
+    if (channel) {
       await msg.reply("What do you want to ask?")
-      const response = await msg.channel.awaitMessages(m => m.author.id === msg.author.id, {max:1});
+      const response = await msg.channel.awaitMessages(m => m.author.id === msg.author.id, { max: 1 });
       let question = response.first().content
       const embed = new Discord.MessageEmbed()
       embed.setTitle(question)

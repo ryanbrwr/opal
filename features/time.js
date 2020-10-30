@@ -7,10 +7,10 @@ function format(date) {
     var ampm = hours >= 12 ? 'pm' : 'am';
     hours = hours % 12;
     hours = hours ? hours : 12; // the hour '0' should be '12'
-    minutes = minutes < 10 ? '0'+minutes : minutes;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
     var strTime = hours + ':' + minutes + ' ' + ampm;
     return strTime;
-  }
+}
 
 let timezones = ['America/Los_Angeles', 'America/New_York', "Europe/London", "Europe/Berlin", "Australia/Sydney", "Asia/Hong_Kong", "Asia/Tokyo"]
 
@@ -25,7 +25,7 @@ module.exports = {
             const response = await axios.get(`https://worldtimeapi.org/api/timezone/${timezone}`)
             let { data } = response
             let { datetime, } = data
-            datetime = datetime.slice(0, datetime.length -6)
+            datetime = datetime.slice(0, datetime.length - 6)
             let date = new Date(datetime);
             let time = format(date, 0)
             let area = timezone.split('/')[1]

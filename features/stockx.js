@@ -37,7 +37,7 @@ module.exports = {
         // Clean up JSON object
         let respObj = resp.data['hits'][0];
         if (respObj == null) {
-             // Error occured or product was not found
+            // Error occured or product was not found
             const embed = new Discord.MessageEmbed();
             embed.setTitle('Error');
             embed.setDescription('Product was most likely not found on StockX. Please try again later.');
@@ -58,7 +58,7 @@ module.exports = {
         embed.addField('Last Sale (USD)', respObj['last_sale'].toFixed(2), true);
         embed.setThumbnail(respObj['thumbnail_url']);
         setBranding(embed)
-        
+
         msg.channel.send(embed);
     }
 }

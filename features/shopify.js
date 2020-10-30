@@ -38,7 +38,7 @@ module.exports = {
                 const isShopifySite = response.request.res.responseUrl.indexOf('myshopify.com')
                 const embed = new Discord.MessageEmbed()
                 embed.setTitle('Shopify')
-                embed.setDescription(`This website is ${isShopifySite ?  'a': 'not a'} shopify site`)
+                embed.setDescription(`This website is ${isShopifySite ? 'a' : 'not a'} shopify site`)
                 setBranding(embed)
                 message.edit(embed)
             })

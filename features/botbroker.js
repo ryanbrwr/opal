@@ -5,8 +5,8 @@ const Discord = require("discord.js")
 module.exports = {
     name: 'botbroker',
     admin: false,
-	description: 'This command will scrape bot broker and check the recent prices of the given bot\n`!botbroker <bot>`\nexample: `!botbroker cyber',
-	async execute(msg) {
+    description: 'This command will scrape bot broker and check the recent prices of the given bot\n`!botbroker <bot>`\nexample: `!botbroker cyber',
+    async execute(msg) {
         if (msg.content.split(' ').length < 2) {
             const embed = new Discord.MessageEmbed()
             embed.setTitle("BotBroker Prices")
@@ -14,41 +14,41 @@ module.exports = {
         } else {
             let arg = msg.content.split(" ")[1]
             let bots = [{
-                    name: "cyber aio",
-                },
-                {
-                    name: "dashe",
-                },
-                {
-                    name: "prism",
-                },
-                {
-                    name: "adept supreme",
-                },
-                {
-                    name: "balko",
-                },
-                {
-                    name: "splashforce",
-                },
-                {
-                    name: "wrath",
-                },
-                {
-                    name: "velox",
-                },
-                {
-                    name: "phantom",
-                },
-                {
-                    name: "project destroyer",
-                },
-                {
-                    name: "mekpreme",
-                },
-                {
-                    name: "swiftaio",
-                }
+                name: "cyber aio",
+            },
+            {
+                name: "dashe",
+            },
+            {
+                name: "prism",
+            },
+            {
+                name: "adept supreme",
+            },
+            {
+                name: "balko",
+            },
+            {
+                name: "splashforce",
+            },
+            {
+                name: "wrath",
+            },
+            {
+                name: "velox",
+            },
+            {
+                name: "phantom",
+            },
+            {
+                name: "project destroyer",
+            },
+            {
+                name: "mekpreme",
+            },
+            {
+                name: "swiftaio",
+            }
             ]
             this.count = 0;
             bots.some((bot) => {

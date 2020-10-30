@@ -1,7 +1,7 @@
 // DEPENDENCIES
 const Discord = require("discord.js");
 const { Client, Intents } = require('discord.js');
-const bot = new Client({ ws: { intents: Intents.ALL}, partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
+const bot = new Client({ ws: { intents: Intents.NON_PRIVILEGED }, partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 const fs = require('fs');
 require('dotenv').config();
 
@@ -50,12 +50,12 @@ bot.on('ready', () => {
 bot.on('messageReactionAdd', async (reaction, user) => {
     // if reaction information is not complete (uncached), retrieve it
     if (reaction.partial) {
-		try {
-			await reaction.fetch();
+        try {
+            await reaction.fetch();
         }
         catch {
-			return;
-		}
+            return;
+        }
     }
 
     // Do not handle bot or client reactions
@@ -115,12 +115,12 @@ const updateStatus = () => {
         members += guild.memberCount;
         guilds++;
     })
-    bot.user.setActivity(`${members} people in ${guilds} servers`, { type: "WATCHING" })
+    bot.user.setActivity(`${guilds} servers | discord.gg/BGzKe2ZPqn`, { type: "WATCHING" })
 }
 
 const welcomeUser = (member) => {
-    if(member.guild.id === "752301663510986822") return;
-  
+    if (member.guild.id === "752301663510986822") return;
+
     const message = ":wave: **Welcome to Opal!** :wave: \n\nIt seems you have joined a server I reside in. Who am I? Well I am a **100% free & open source** Discord bot to make your experience in this group seamless. We provide **over 30 features**, all of which can be tested in our support server! Do you own a group? Opal is perfect for you! Can you code or are you willing to learn? Opal has great resources for anyone looking to contribute! \n\nJoin Support Server: https://discord.gg/p8dzvk7\nFollow Opal on Twitter: https://twitter.com/OpalSource\nInvite Opal Link: https://discord.com/api/oauth2/authorize?client_id=752293928157446184&permissions=8&scope=bot";
     member.user.send(message);
 }

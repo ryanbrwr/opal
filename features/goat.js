@@ -37,7 +37,7 @@ module.exports = {
         // Clean up JSON object
         let respObj = resp.data['hits'][0];
         if (respObj == null) {
-             // Error occured or product was not found
+            // Error occured or product was not found
             const embed = new Discord.MessageEmbed();
             embed.setTitle('Error');
             embed.setDescription('Product was most likely not found on Goat. Please try again later.');
@@ -58,8 +58,8 @@ module.exports = {
         embed.addField("Release Date", `${releaseDate.getFullYear()}-${releaseDate.getMonth()}-${releaseDate.getDate()}`, true);
 
         embed.addField("Size", respObj['size'], true);
-        embed.addField('Retail Price (USD)', (respObj['retail_price_cents_usd']/100).toFixed(2), true);
-        embed.addField('Lowest Price (USD)', (respObj['lowest_price_cents_usd']/100).toFixed(2), true);
+        embed.addField('Retail Price (USD)', (respObj['retail_price_cents_usd'] / 100).toFixed(2), true);
+        embed.addField('Lowest Price (USD)', (respObj['lowest_price_cents_usd'] / 100).toFixed(2), true);
 
         setBranding(embed);
         if (respObj['has_picture']) embed.setThumbnail(respObj['main_picture_url']);
