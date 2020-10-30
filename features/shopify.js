@@ -6,7 +6,7 @@ const validProtocol = /^(https?:\/\/)?/
 module.exports = {
     name: 'shopify',
     admin: false,
-    description: 'This command will check if the given site is a shopify site\n!shopify <site>\nexample: `!shopify https://kith.com`',
+    description: 'This command will check if the given site is a shopify site\n`!shopify <site>`\nexample: `!shopify https://kith.com`',
     async execute(msg) {
         const args = msg.content.split(' ')
         if (args.length != 2) {
