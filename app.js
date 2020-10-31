@@ -161,8 +161,6 @@ const byeGroup = (guild) => {
 
 
 global.setBranding = (embed) => {
-    embed.setColor('#36393F');
-    embed.setTimestamp();
-    embed.addField("\u200b", "[Invite Opal](https://bit.ly/opal-invite) | [Join Server](https://bit.ly/opal-join-discord) | [Twitter](https://twitter.com/OpalSource)");
-    embed.setFooter("opal.io", "https://i.ibb.co/BG79PK2/opallogo.png");
+    embed.setColor('#5de8e8');
+    embed.addField("\u200b", "[Invite](https://bit.ly/opal-invite)   [Join Support](https://bit.ly/opal-join-discord)   [Upvote](https://discord.boats/bot/752293928157446184)");
 }
