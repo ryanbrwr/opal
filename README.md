@@ -69,6 +69,7 @@ Opal currently supports the following commands:
 
 * address <address> - Displays an alternate address
 * botbroker <bot> - Scrapes BotBroker and checks recent prices of the given bot
+* crypto <coin> - Grabs the lates data on the given cryptocurrency
 * convert <amount> <from> <to> - Converts one currency to another
 * downloads - Displays download links of all major bots.
 * email <email> - Changes the email given and sends it to the user
