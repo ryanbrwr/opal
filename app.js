@@ -162,5 +162,5 @@ const byeGroup = (guild) => {
 
 global.setBranding = (embed) => {
     embed.setColor('#5de8e8');
-    embed.addField("\u200b", "[Invite](https://bit.ly/opal-invite)   [Join Support](https://bit.ly/opal-join-discord)   [Upvote](https://discord.boats/bot/752293928157446184)");
+    embed.addField("\u200b", "[Invite](https://bit.ly/opal-invite) | [Join Support](https://bit.ly/opal-join-discord) | [Upvote](https://discord.boats/bot/752293928157446184)");
 }

@@ -24,13 +24,13 @@ module.exports = {
                     // This is where the magic will happen
                     let results = JSON.parse(response.body)[0]
                     if (results) {
-                        embed.setTitle('Twitter Search')
-                        embed.addField('Username', `[@${results.screen_name}](https://twitter.com/${results.screen_name})`, true)
+                        embed.setTitle(results.screen_name)
+                        embed.setURL(`https://twitter.com/${results.screen_name}`)
                         embed.addField('Name', results.name, true)
                         embed.addField('Followers', results.followers_count, true)
-                        embed.addField('Following', results.friends_count, true)
+                        // embed.addField('Following', results.friends_count, true)
                         embed.addField('Tweets', results.statuses_count, true)
-                        embed.addField('Likes', results.favourites_count, true)
+                        // embed.addField('Likes', results.favourites_count, true)
                         setBranding(embed)
                         embed.setThumbnail(results.profile_image_url_https)
                         msg.channel.send(embed)
