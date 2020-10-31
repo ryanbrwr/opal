@@ -16,31 +16,18 @@ module.exports = {
         if (msg.content.split(' ').length != 1) {
             let query = msg.content.split(' ')
             query.shift()
-            query = query.join(' ')
+            query = query.join('%20')
 
-            axios.post('https://www.funko.com/api/search/template', {
-                type: "shop",
-                sort: { createdAt: "desc" },
-                term: query,
-                pageCount: 1,
-                page: 1
-            })
+            axios.get(`https://www.hobbydb.com/api/catalog_items?include_cit=true&include_count=false&include_main_images=true&market_id=poppriceguide&order=%7B%22name%22:%22created_at%22,%22sort%22:%22desc%22%7D&page=1&serializer=CatalogItemPudbSerializer&subvariants=true&q=${query}`)
                 .then((response) => {
-                    const { hits } = response.data
-                    if (hits.length > 0) {
-                        let releaseDate = new Date(hits[0].createdAt)
-                        let day = releaseDate.getDay()
-                        let month = releaseDate.getMonth()
-                        let year = releaseDate.getFullYear()
-
-                        embed.setTitle(hits[0].title)
-                        embed.setURL(`https://www.funko.com/shop/details/${hits[0].handle}`)
-                        embed.addField('Price', formatter.format(hits[0].price), true)
-                        embed.addField('ID', hits[0].uid, true)
-                        embed.addField('Product Type', hits[0].productType, true)
-                        embed.addField('Release Date', `${month}/${day}/${year}`, true)
-                        embed.addField('In Stock', hits[0].variants[0].inventory, true)
-                        embed.setThumbnail(hits[0].media[0].src)
+                    if(response.data.data.length > 0) {
+                        let data = response.data.data[0]
+                        embed.setTitle(data.attributes.name)
+                        embed.setURL(`https://www.hobbydb.com${data.attributes.urls.catalog_item_link_url}`)
+                        embed.addField('Lowest Price', `$${data.attributes.lowest_price}`, true)
+                        embed.addField('Stock', data.attributes.collectibles_for_sale_count, true)
+                        embed.addField('ID', data.id, true)
+                        embed.setThumbnail(data.attributes.images.main_photo_url)
                         setBranding(embed)
                         msg.channel.send(embed)
                     }
