@@ -2,7 +2,6 @@
 const Discord = require("discord.js");
 const { Client, Intents } = require('discord.js');
 const bot = new Client({ ws: { intents: Intents.NON_PRIVILEGED }, partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
-const mongoose = require('mongoose');
 const helpers = require('./helpers.js')
 
 // const Group = require('./models/groups.js')
@@ -68,7 +67,6 @@ bot.on('guildDelete', (guild) => {
 })
 
 bot.login(process.env.BOT_TOKEN).then(() => {
-    mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     console.log('Connected to Mongo and authorized in all servers');
 });
 
