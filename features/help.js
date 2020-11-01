@@ -9,7 +9,6 @@ module.exports = {
     description: 'This command will display this menu\n`!help`\nexample: `!help`',
     async execute(msg) {
         let embed = makeHelpEmbed(0);
-        setBranding(embed)
         let message = await msg.channel.send(embed);
 
         await message.react('⬅️');
@@ -26,6 +25,7 @@ global.makeHelpEmbed = (pageIndex) => {
         const feature = require(`./${file}`);
         embed.addField(feature.name[0].toUpperCase() + feature.name.substring(1), feature.description, false);
     }
+    setBranding(embed)
 
     return embed;
 };
