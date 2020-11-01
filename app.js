@@ -52,8 +52,30 @@ bot.on('ready', () => {
     updateStatus()
 });
 
-bot.on('messageReactionAdd', async (reaction, user) => {
-    // if reaction information is not complete (uncached), retrieve it
+bot.on('messageReactionAdd', (reaction, user) => resendHelp(reaction, user))
+
+bot.on('guildMemberAdd', (member) => {
+    updateStatus();
+    welcomeUser(member);
+});
+
+bot.on('guildMemberRemove', () => updateStatus())
+
+bot.on('guildCreate', (guild) => {
+    updateStatus()
+    welcomeGroup(guild)
+})
+bot.on('guildDelete', (guild) => {
+    updateStatus()
+    byeGroup(guild)
+})
+
+// LOG IN
+bot.login(process.env.BOT_TOKEN).then(() => {
+    console.log('authorized in all servers');
+});
+
+const resendHelp = async (reaction, user)  => {// if reaction information is not complete (uncached), retrieve it
     if (reaction.partial) {
         try {
             await reaction.fetch();
@@ -90,29 +112,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
             reaction.users.remove(user);
         }
     }
-});
-
-bot.on('guildMemberAdd', (member) => {
-    updateStatus();
-    welcomeUser(member);
-});
-
-bot.on('guildMemberRemove', () => updateStatus())
-
-bot.on('guildCreate', (guild) => {
-    updateStatus()
-    welcomeGroup(guild)
-})
-bot.on('guildDelete', (guild) => {
-    updateStatus()
-    byeGroup(guild)
-})
-
-// LOG IN
-bot.login(process.env.BOT_TOKEN).then(() => {
-    console.log('authorized in all servers');
-});
-
+}
 const updateStatus = () => {
     let members = 0;
     let guilds = 0;
@@ -123,12 +123,12 @@ const updateStatus = () => {
     bot.user.setActivity(`${guilds} servers | discord.gg/BGzKe2ZPqn`, { type: "WATCHING" })
 }
 
-const welcomeUser = (member) => {
-    if (member.guild.id === "752301663510986822") return;
+// const welcomeUser = (member) => {
+//     if (member.guild.id === "752301663510986822") return;
 
-    const message = ":wave: **Welcome to Opal!** :wave: \n\nIt seems you have joined a server I reside in. Who am I? Well I am a **100% free & open source** Discord bot to make your experience in this group seamless. We provide **over 30 features**, all of which can be tested in our support server! Do you own a group? Opal is perfect for you! Can you code or are you willing to learn? Opal has great resources for anyone looking to contribute! \n\nJoin Support Server: https://discord.gg/p8dzvk7\nFollow Opal on Twitter: https://twitter.com/OpalSource\nInvite Opal Link: https://discord.com/api/oauth2/authorize?client_id=752293928157446184&permissions=8&scope=bot";
-    member.user.send(message);
-}
+//     const message = ":wave: **Welcome to Opal!** :wave: \n\nIt seems you have joined a server I reside in. Who am I? Well I am a **100% free & open source** Discord bot to make your experience in this group seamless. We provide **over 30 features**, all of which can be tested in our support server! Do you own a group? Opal is perfect for you! Can you code or are you willing to learn? Opal has great resources for anyone looking to contribute! \n\nJoin Support Server: https://discord.gg/p8dzvk7\nFollow Opal on Twitter: https://twitter.com/OpalSource\nInvite Opal Link: https://discord.com/api/oauth2/authorize?client_id=752293928157446184&permissions=8&scope=bot";
+//     member.user.send(message);
+// }
 
 const welcomeGroup = (guild) => {
     guilds = 0;
