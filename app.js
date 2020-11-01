@@ -2,6 +2,10 @@
 const Discord = require("discord.js");
 const { Client, Intents } = require('discord.js');
 const bot = new Client({ ws: { intents: Intents.NON_PRIVILEGED }, partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
+
+const mongoose = require('mongoose');
+const User = require('./models/users.js')
+
 const fs = require('fs');
 require('dotenv').config();
 
@@ -40,6 +44,7 @@ bot.on('message', (msg) => {
     if (command.admin && !isAdmin) return;
 
     // Execute command, if all checks pass
+    checkUser(msg.author)
     command.execute(msg)
 });
 
@@ -159,8 +164,27 @@ const byeGroup = (guild) => {
     bot.channels.cache.get('770377555089031240').send(embed)
 }
 
+const checkUser = (author) => {
+    mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    User.findOne({ 'userID': author.id }, 'userID', function (err, person) {
+        if (person) {
+            return;
+        }
+        else {
+            const user = new User({
+                _id: mongoose.Types.ObjectId(),
+                userID: author.id
+            })
+            user.save()
+                .then(() => {
+                    const message = `:pray:  **Thanks for using Opal** :pray:\n\n**This is a one time message** to thank you for using **Opal**. **Opal** is a **100% free** discord bot for all of your cook group needs. From stockx checkers to variant grabbers, and over 30 other commands, we have it all. If you enjoy using the bot we ask if you could please upvote us with the link below, it really helps us get our name out even more. If you're interested in adding **Opal** to your own group please join the support server! Instructions to add opal can be found there!\n\n**Official Support Server**:  https://discord.gg/w59m9DB\n**Upvote Us**: https://discord.boats/bot/752293928157446184`;
+                    author.send(message);
+                })
+                .catch(err => console.log(err))
+        }
+    });
+}
 
 global.setBranding = (embed) => {
-    embed.setColor('#5de8e8');
-    embed.addField("\u200b", "[Invite](https://bit.ly/opal-invite) | [Join Support](https://bit.ly/opal-join-discord) | [Upvote](https://discord.boats/bot/752293928157446184)");
+    embed.setColor('#8666e1');
 }

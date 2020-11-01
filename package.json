@@ -17,7 +17,7 @@
     "lodash": "^4.17.19",
     "moment": "^2.25.3",
     "mongodb": "^3.5.8",
-    "mongoose": "^5.9.15",
+    "mongoose": "^5.10.11",
     "ms": "^2.1.2",
     "node": "^14.13.0",
     "node-geocoder": "^3.27.0",
