@@ -9,6 +9,7 @@ module.exports = {
     description: 'This command will display this menu\n`!help`\nexample: `!help`',
     async execute(msg) {
         let embed = makeHelpEmbed(0);
+        setBranding(embed)
         let message = await msg.channel.send(embed);
 
         await message.react('⬅️');
