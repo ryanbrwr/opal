@@ -1,7 +1,10 @@
 // DEPENDENCIES
 const Discord = require("discord.js");
+const mongoose = require('mongoose');
+
 const { Client, Intents } = require('discord.js');
 const bot = new Client({ ws: { intents: Intents.NON_PRIVILEGED }, partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
+
 const helpers = require('./helpers.js')
 
 // const Group = require('./models/groups.js')
@@ -59,14 +62,15 @@ bot.on('messageReactionAdd', (reaction, user) => {
 
 bot.on('guildCreate', (guild) => {
     helpers.updateStatus(bot)
-    helpers.welcomeGroup(bot, guild)
+    helpers.addGroup(bot, guild)
 })
 bot.on('guildDelete', (guild) => {
     helpers.updateStatus(bot)
-    helpers.byeGroup(bot, guild)
+    helpers.removeGroup(bot, guild)
 })
 
 bot.login(process.env.BOT_TOKEN).then(() => {
+    mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
     console.log('Connected to Mongo and authorized in all servers');
 });
 

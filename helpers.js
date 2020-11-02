@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
-const User = require('./models/users.js')
 const mongoose = require('mongoose');
+const User = require('./models/users.js')
+const Group = require('./models/groups.js')
 
 const resendHelp = async (bot, reaction, user) => {
     if (reaction.partial) {
@@ -51,24 +52,33 @@ const updateStatus = (bot) => {
     bot.user.setActivity(`${guilds} servers | discord.gg/BGzKe2ZPqn`, { type: "WATCHING" })
 }
 
-const welcomeGroup = (bot, guild) => {
-    guilds = 0;
-    bot.guilds.cache.forEach((guild) => {
-        guilds++
+const addGroup = (bot, guild) => {
+    const group = new Group({
+        _id: mongoose.Types.ObjectId(),
+        groupID: guild.id,
+        keywordList: []
     })
-    const embed = new Discord.MessageEmbed()
-        .addField("Server Name", guild.name, true)
-        .addField("Server ID", guild.id, true)
-        .addField("Owner", guild.owner ? guild.owner : 'N/A', true)
-        .addField("Region", guild.region, true)
-        .addField("Members", guild.memberCount, true)
-        .addField("Server Count", guilds, true)
-        .setThumbnail(guild.iconURL)
-        .setColor("#61E786")
-    bot.channels.cache.get('770377555089031240').send(embed)
+    group.save()
+        .then(() => {
+            guilds = 0;
+            bot.guilds.cache.forEach((guild) => {
+                guilds++
+            })
+            const embed = new Discord.MessageEmbed()
+                .addField("Server Name", guild.name, true)
+                .addField("Server ID", guild.id, true)
+                .addField("Owner", guild.owner ? guild.owner : 'N/A', true)
+                .addField("Region", guild.region, true)
+                .addField("Members", guild.memberCount, true)
+                .addField("Server Count", guilds, true)
+                .setThumbnail(guild.iconURL)
+                .setColor("#61E786")
+            bot.channels.cache.get('770377555089031240').send(embed)
+        })
+        .catch(err => console.log(err))
 }
 
-const byeGroup = (bot, guild) => {
+const removeGroup = (bot, guild) => {
     guilds = 0;
     bot.guilds.cache.forEach((guild) => {
         guilds++
@@ -87,7 +97,6 @@ const byeGroup = (bot, guild) => {
 
 const checkUser = (author) => {
     try {
-        mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
         User.findOne({ 'userID': author.id }, 'userID', function (err, person) {
             if (person) {
                 return;
@@ -114,4 +123,4 @@ global.setBranding = (embed) => {
     embed.setColor('#8666e1');
 }
 
-module.exports = { resendHelp, updateStatus, welcomeGroup, byeGroup, checkUser }
+module.exports = { resendHelp, updateStatus, addGroup, removeGroup, checkUser }
