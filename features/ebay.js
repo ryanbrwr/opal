@@ -18,7 +18,11 @@ module.exports = {
 
         // For loop for the amount of GET requests to make
         for (let i = 0; i < args[2]; i++) {
-            await axios.get(args[1]);
+            await axios.get(args[1], {
+              headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36'
+              }
+            });
         }
 
         // Post success embed message
