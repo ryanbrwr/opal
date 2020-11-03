@@ -107,6 +107,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
-[@ryanbrwr](https://twitter.com/ryanbrwr) ||
-[My Github](https://github.com/RyanBrew/) ||
-ryanbrew13@gmail.com
+[@ryanbrwr](https://twitter.com/ryanbrwr) || [My Github](https://github.com/RyanBrew/)
