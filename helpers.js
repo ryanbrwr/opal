@@ -103,24 +103,8 @@ const checkUser = async (author) => {
     });
 }
 
-const checkUpvote = (dbl, msg) => {
-    dbl.getVotes().then(votes => {
-        if (votes.find(vote => vote.id == msg.author.id)) {
-            return true
-        }
-        else {
-            const embed = new Discord.MessageEmbed()
-            embed.setTitle('Upvote Needed')
-            embed.setDescription(`It seems like you haven't upvoted yet. You can do so [here](https://top.gg/bot/752293928157446184)`)
-            setBranding(embed)
-            msg.channel.send(embed)
-            return false
-        }
-    });
-}
-
 global.setBranding = (embed) => {
     embed.setColor('#8666e1');
 }
 
-module.exports = { resendHelp, updateStatus, welcomeGroup, byeGroup, checkUser, checkUpvote }
+module.exports = { resendHelp, updateStatus, welcomeGroup, byeGroup, checkUser }
