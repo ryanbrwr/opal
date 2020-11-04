@@ -52,24 +52,24 @@ bot.on('message', (msg) => {
 
     // Execute command, if all checks pass
     checkUser(msg.author)
-    if (command.name === 'help' || msg.guild.id === '752301663510986822') {
-        command.execute(msg)
-    }
-    else {
-        // This is gross please help me -- RYAN
-        dbl.getVotes().then(votes => {
-            if (votes.find(vote => vote.id == msg.author.id)) {
-                command.execute(msg)
-            }
-            else {
-                const embed = new Discord.MessageEmbed()
-                embed.setTitle('Upvote Needed')
-                embed.setDescription(`It seems like you haven't upvoted yet. You can do so [here](https://top.gg/bot/752293928157446184)`)
-                setBranding(embed)
-                msg.channel.send(embed)
-            }
-        });
-    }
+    // if (command.name === 'help' || msg.guild.id === '752301663510986822') {
+    command.execute(msg)
+    // }
+    // else {
+    //     // This is gross please help me -- RYAN
+    //     dbl.getVotes().then(votes => {
+    //         if (votes.find(vote => vote.id == msg.author.id)) {
+    //             command.execute(msg)
+    //         }
+    //         else {
+    //             const embed = new Discord.MessageEmbed()
+    //             embed.setTitle('Upvote Needed')
+    //             embed.setDescription(`It seems like you haven't upvoted yet. You can do so [here](https://top.gg/bot/752293928157446184)`)
+    //             setBranding(embed)
+    //             msg.channel.send(embed)
+    //         }
+    //     });
+    // }
 });
 
 bot.on('ready', () => {
