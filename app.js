@@ -1,13 +1,14 @@
 // DEPENDENCIES
+require('dotenv').config();
 const Discord = require("discord.js");
 const { Client, Intents } = require('discord.js');
 const bot = new Client({ ws: { intents: Intents.NON_PRIVILEGED }, partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
+const DBL = require("dblapi.js");
+const dbl = new DBL(process.env.DBL_TOKEN, bot);
 const helpers = require('./helpers.js')
-
 // const Group = require('./models/groups.js')
 
 const fs = require('fs');
-require('dotenv').config();
 
 // Command handler setup
 global.PREFIX = '!';
@@ -18,6 +19,11 @@ for (const file of featureFiles) {
     const feature = require(`./features/${file}`);
     bot.commands.set(feature.name, feature);
 }
+
+// Posts the server count to DBL
+dbl.on('posted', () => {
+  console.log('Server count posted!');
+})
 
 bot.on('message', (msg) => {
     // Sender is a bot and should not be served
