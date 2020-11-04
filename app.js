@@ -9,6 +9,7 @@ const helpers = require('./helpers.js')
 // const Group = require('./models/groups.js')
 
 const fs = require('fs');
+const { checkUser } = require('./helpers.js');
 
 // Command handler setup
 global.PREFIX = '!';
@@ -50,8 +51,13 @@ bot.on('message', (msg) => {
     if (command.admin && !isAdmin) return;
 
     // Execute command, if all checks pass
-    helpers.checkUser(msg.author)
-    command.execute(msg)
+    checkUser(msg.author)
+    if (command.name === 'help' || msg.guild.id === '752301663510986822') {
+        command.execute(msg)
+    }
+    else if (helpers.checkUpvote(dbl, msg)) {
+        command.execute(msg)
+    }
 });
 
 bot.on('ready', () => {
