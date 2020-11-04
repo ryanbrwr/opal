@@ -52,12 +52,12 @@ bot.on('message', (msg) => {
 
     // Execute command, if all checks pass
     checkUser(msg.author)
-    if (command.name === 'help' || msg.guild.id === '752301663510986822') {
-        command.execute(msg)
-    }
-    else if (helpers.checkUpvote(dbl, msg)) {
-        command.execute(msg)
-    }
+    // if (command.name === 'help' || msg.guild.id === '752301663510986822') {
+    //     command.execute(msg)
+    // }
+    // else if (helpers.checkUpvote(dbl, msg)) {
+    command.execute(msg)
+    // }
 });
 
 bot.on('ready', () => {
