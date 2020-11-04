@@ -10,7 +10,7 @@ module.exports = {
   async execute(msg) {
     let content = msg.content.split(' ')
     let id = content[1]
-    let channel = msg.guild.channels.get(id)
+    let channel = msg.guild.channels.cache.get(id)
     if (channel) {
       const result = await getResponses(msg)
       const embed = new Discord.MessageEmbed()
