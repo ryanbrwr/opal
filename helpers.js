@@ -48,7 +48,7 @@ const updateStatus = (bot) => {
         members += guild.memberCount;
         guilds++;
     })
-    bot.user.setActivity(`${guilds} servers | discord.gg/BGzKe2ZPqn`, { type: "WATCHING" })
+    bot.user.setActivity(`${guilds} servers | ${members} people`, { type: "WATCHING" })
 }
 
 const welcomeGroup = (bot, guild) => {
