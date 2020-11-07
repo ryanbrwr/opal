@@ -6,6 +6,7 @@ Opal currently supports the following commands:
 * crypto <coin> - Grabs the lates data on the given cryptocurrency
 * convert <amount> <from> <to> - Converts one currency to another
 * downloads - Displays download links of all major bots.
+* ebay <listing url> <amount of views> - Increases the view count of your Ebay listing.
 * email <email> - Changes the email given and sends it to the user
 * embed <channel_id> - Creates a new embed in the specified channel.
 * fee <amount> - Calculates the payouts for the specified amount for every major platform
