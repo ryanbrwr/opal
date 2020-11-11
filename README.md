@@ -58,6 +58,8 @@ These are specific instructions for forking and testing your new features.
 2. Download and install dependencies (`npm install`)
 3. Set environment variables
   - BOT_TOKEN
+  - TWITTER_TOKENS
+    - see twitter.js
 4. Test your work! (`node app.js`)
 
 
