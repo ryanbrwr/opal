@@ -2,7 +2,9 @@
 require('dotenv').config();
 const Discord = require("discord.js");
 const { Client, Intents } = require('discord.js');
-const bot = new Client({ ws: { intents: Intents.NON_PRIVILEGED }, partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
+let intents = new Intents();
+intents.add(['GUILDS', 'GUILD_MEMBERS', 'GUILD_BANS', 'GUILD_EMOJIS', 'GUILD_INTEGRATIONS', 'GUILD_WEBHOOKS', 'GUILD_INVITES', 'GUILD_VOICE_STATES', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'GUILD_MESSAGE_TYPING', 'DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'DIRECT_MESSAGE_TYPING'])
+const bot = new Client({ ws: { intents: intents }, partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 const DBL = require("dblapi.js");
 const dbl = new DBL(process.env.DBL_TOKEN, bot);
 const helpers = require('./helpers.js')
@@ -80,6 +82,10 @@ bot.on('messageReactionAdd', (reaction, user) => {
     helpers.resendHelp(bot, reaction, user)
 })
 
+bot.on('guildMemberAdd', (member) => {
+    helpers.updateStatus(bot);
+    helpers.checkUser(member);
+});
 
 bot.on('guildCreate', (guild) => {
     helpers.updateStatus(bot)
@@ -101,9 +107,6 @@ bot.login(process.env.BOT_TOKEN).then(() => {
 //     member.user.send(message);
 // }
 
-// bot.on('guildMemberAdd', (member) => {
-//         updateStatus();
-//         welcomeUser(member);
-//     });
+
 
 // bot.on('guildMemberRemove', () => updateStatus())
