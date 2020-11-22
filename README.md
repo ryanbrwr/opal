@@ -1,8 +1,8 @@
-[![Release](https://img.shields.io/github/release/ryanbrew/opal.svg)](https://github.com/ryanbrew/opal/releases/latest)
+[![Release](https://img.shields.io/github/release/ryanbrwr/opal.svg)](https://github.com/ryanbrwr/opal/releases/latest)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
-[![GitHub contributors](https://img.shields.io/github/contributors/ryanbrew/opal.svg)](https://github.com/ryanbrew/opal/releases/latest)
-[![GitHub issues](https://img.shields.io/github/issues/ryanbrew/opal.svg)](https://GitHub.com/RyanBrew/opal/issues/)
-[![GitHub stars](https://img.shields.io/github/stars/ryanbrew/opal.svg?style=social&label=Star)](https://github.com/ryanbrew/opal)
+[![GitHub contributors](https://img.shields.io/github/contributors/ryanbrwr/opal.svg)](https://github.com/ryanbrwr/opal/releases/latest)
+[![GitHub issues](https://img.shields.io/github/issues/ryanbrwr/opal.svg)](https://GitHub.com/ryanbrwr/opal/issues/)
+[![GitHub stars](https://img.shields.io/github/stars/ryanbrwr/opal.svg?style=social&label=Star)](https://github.com/ryanbrwr/opal)
 [![Discord](https://discordapp.com/api/guilds/752301663510986822/widget.png)](https://discord.gg/KgbZDrS)
 
 
@@ -15,6 +15,16 @@
   <a href="https://github.com/RyanBrew/opal">
     <img src="opal_logo.png" alt="Logo" width="128" height="128">
   </a>
+  
+  <h3 align="center">Opal Discord Bot</h3>
+
+  <p align="center">
+    A 100% free and open source group assistant
+    <br />
+    <a href="https://github.com/ryanbrwr/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/ryanbrwr/issues">Request Feature</a>
+  </p>
 </p>
 
 
