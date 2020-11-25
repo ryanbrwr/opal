@@ -24,7 +24,7 @@ module.exports = {
         let new_size = size + fees[`${from}${to}`]
         const embed = new Discord.MessageEmbed()
         embed.setTitle("Shoe Size Converter")
-        embed.setDescription(`Size ${size} in ${from} is size ${new_size} in ${to}.`
+        embed.setDescription(`Size ${size} in ${from} is size ${new_size} in ${to}.`)
         setBranding(embed)
         msg.channel.send(embed)
       }
