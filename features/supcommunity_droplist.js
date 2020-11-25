@@ -11,7 +11,7 @@ module.exports = {
   async execute(msg) {
     const args = msg.content.split(' ')
     if (args.length != 1) {
-      const embed = new Discord.RichEmbed()
+      const embed = new Discord.MessageEmbed()
       embed.setTitle("Error")
       embed.setDescription("Command is missing one or more arguments")
       msg.channel.send(embed)
@@ -30,7 +30,7 @@ module.exports = {
     $('div[class="card-details"]').each((index, b) => {
       const card = $(b)
       const name = card.attr('data-itemname')
-      const price = card.find('span[class="label-price"]').text().replace(re,"")
+      const price = card.find('span[class="label-price"]').text().replace(re, "")
       items.push({
         name,
         price
@@ -43,7 +43,7 @@ module.exports = {
       droplistString += `${item.name}: ${item.price ? item.price : '**price not known yet**'}`
     }
 
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     embed.setTitle("Latest Supreme Droplist")
     embed.setDescription(droplistString)
     setBranding(embed)

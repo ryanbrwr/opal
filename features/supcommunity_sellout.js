@@ -17,7 +17,7 @@ module.exports = {
   async execute(msg) {
     const args = msg.content.split(' ')
     if (args.length != 2) {
-      const embed = new Discord.RichEmbed()
+      const embed = new Discord.MessageEmbed()
       embed.setTitle("Error")
       embed.setDescription("Command is missing one or more arguments")
       setBranding(embed)
@@ -26,7 +26,7 @@ module.exports = {
     }
 
     if (!ALLOWED_REGIONS.includes(args[1].toLowerCase())) {
-      const embed = new Discord.RichEmbed()
+      const embed = new Discord.MessageEmbed()
       embed.setTitle("Error")
       embed.setDescription("Region does not exist")
       setBranding(embed)
@@ -52,7 +52,7 @@ module.exports = {
 
       const selloutItem = $(b)
 
-      const name = selloutItem.find('div[class="col-xs-12 sellout-name"]').text().replace(re,"").trim()
+      const name = selloutItem.find('div[class="col-xs-12 sellout-name"]').text().replace(re, "").trim()
       const colourway = selloutItem.find('div[class="col-xs-6 sellout-colorway"]').text().replace(re, "").trim()
 
       items.push({
@@ -61,12 +61,12 @@ module.exports = {
       })
     })
 
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     embed.setTitle("Latest Supreme Sellout Times")
-    
+
     for (let index = 0; index < items.length; index++) {
       const item = items[index]
-      embed.addField(`#${index+1}`, `${item.name} | ${item.colourway}`)
+      embed.addField(`#${index + 1}`, `${item.name} | ${item.colourway}`)
     }
     setBranding(embed)
     msg.channel.send(embed)

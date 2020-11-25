@@ -6,11 +6,11 @@ const validProtocol = /^(https?:\/\/)?/
 module.exports = {
     name: 'shopify',
     admin: false,
-    description: 'This command will check if the given site is a shopify site\n!shopify <site>`\nexample: `!shopify https://kith.com`',
+    description: 'This command will check if the given site is a shopify site\n`!shopify <site>`\nexample: `!shopify https://kith.com`',
     async execute(msg) {
         const args = msg.content.split(' ')
         if (args.length != 2) {
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
             embed.setTitle('Shopify')
             embed.setDescription('This command only takes one URL');
             setBranding(embed)
@@ -19,7 +19,7 @@ module.exports = {
         }
         let site = args[1].toLowerCase()
         if (!validProtocol.test(site)) {
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
             embed.setTitle('Shopify')
             embed.setDescription('This is an invalid URL');
             setBranding(embed)
@@ -36,14 +36,16 @@ module.exports = {
         axios.get(site + '/admin')
             .then((response) => {
                 const isShopifySite = response.request.res.responseUrl.indexOf('myshopify.com')
-                const embed = new Discord.RichEmbed()
+                const embed = new Discord.MessageEmbed()
                 embed.setTitle('Shopify')
+                embed.setDescription(`This website is ${isShopifySite ? 'a' : 'not a'} shopify site`)
                 setBranding(embed)
                 message.edit(embed)
             })
             .catch(() => {
-                const embed = new Discord.RichEmbed()
+                const embed = new Discord.MessageEmbed()
                 embed.setTitle('Shopify')
+                embed.setDescription('This website is not a shopify site')
                 setBranding(embed)
                 message.edit(embed)
             })
