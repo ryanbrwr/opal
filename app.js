@@ -84,7 +84,6 @@ bot.on('messageReactionAdd', (reaction, user) => {
 
 bot.on('guildMemberAdd', (member) => {
     helpers.updateStatus(bot);
-    helpers.checkUser(member);
 });
 
 bot.on('guildCreate', (guild) => {
