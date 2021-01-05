@@ -11,7 +11,6 @@ const helpers = require('./helpers.js')
 // const Group = require('./models/groups.js')
 
 const fs = require('fs');
-const { checkUser } = require('./helpers.js');
 
 // Command handler setup
 global.PREFIX = '!';
@@ -53,25 +52,9 @@ bot.on('message', (msg) => {
     if (command.admin && !isAdmin) return;
 
     // Execute command, if all checks pass
-    checkUser(msg.author)
-    // if (command.name === 'help' || msg.guild.id === '752301663510986822') {
+    helpers.checkUser(msg.author)
+
     command.execute(msg)
-    // }
-    // else {
-    //     // This is gross please help me -- RYAN
-    //     dbl.getVotes().then(votes => {
-    //         if (votes.find(vote => vote.id == msg.author.id)) {
-    //             command.execute(msg)
-    //         }
-    //         else {
-    //             const embed = new Discord.MessageEmbed()
-    //             embed.setTitle('Upvote Needed')
-    //             embed.setDescription(`It seems like you haven't upvoted yet. You can do so [here](https://top.gg/bot/752293928157446184)`)
-    //             setBranding(embed)
-    //             msg.channel.send(embed)
-    //         }
-    //     });
-    // }
 });
 
 bot.on('ready', () => {
@@ -83,8 +66,8 @@ bot.on('messageReactionAdd', (reaction, user) => {
 })
 
 bot.on('guildMemberAdd', (member) => {
+    helpers.checkUser(member)
     helpers.updateStatus(bot);
-    helpers.checkUser(member);
 });
 
 bot.on('guildCreate', (guild) => {
@@ -99,14 +82,3 @@ bot.on('guildDelete', (guild) => {
 bot.login(process.env.BOT_TOKEN).then(() => {
     console.log('Connected to Mongo and authorized in all servers');
 });
-
-// const welcomeUser = (member) => {
-//     if (member.guild.id === "752301663510986822") return;
-
-//     const message = ":wave: **Welcome to Opal!** :wave: \n\nIt seems you have joined a server I reside in. Who am I? Well I am a **100% free & open source** Discord bot to make your experience in this group seamless. We provide **over 30 features**, all of which can be tested in our support server! Do you own a group? Opal is perfect for you! Can you code or are you willing to learn? Opal has great resources for anyone looking to contribute! \n\nJoin Support Server: https://discord.gg/p8dzvk7\nFollow Opal on Twitter: https://twitter.com/OpalSource\nInvite Opal Link: https://discord.com/api/oauth2/authorize?client_id=752293928157446184&permissions=8&scope=bot";
-//     member.user.send(message);
-// }
-
-
-
-// bot.on('guildMemberRemove', () => updateStatus())
