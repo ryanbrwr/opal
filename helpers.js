@@ -95,7 +95,7 @@ const checkUser = async (author) => {
             })
             user.save()
                 .then(() => {
-                    const message = `:pray:  **Thanks for using Opal** :pray:\n\n**This is a one time message** to thank you for using **Opal**. **Opal** is a **100% free** discord bot for all of your cook group needs. From stockx checkers to variant grabbers, and over 30 other commands, we have it all. If you enjoy using the bot we ask if you could please upvote us with the link below, it really helps us get our name out even more. If you're interested in adding **Opal** to your own group please join the support server! To invite **Opal*** simply click the invite link below. \n\n**Official Support Server**:  https://discord.gg/w59m9DB\n**Upvote Us**: https://top.gg/bot/752293928157446184\n**Invite Link**: https://discord.com/api/oauth2/authorize?client_id=752293928157446184&permissions=8&scope=bot`;
+                    const message = `:wave: **Welcome to Opal!** :wave: \n\nIt seems you have used me for the first time. Who am I? Well I am a **100% free & open source** Discord bot to make your experience in this group seamless. We provide **over 30 features**, all of which can be tested in our support server! Do you own a group? Opal is perfect for you! Can you code or are you willing to learn? Opal has great resources for anyone looking to contribute! \n\nJoin Support Server: https://discord.gg/w59m9DB\nInvite Opal Link: https://discord.com/api/oauth2/authorize?client_id=752293928157446184&permissions=8&scope=bot"`;
                     author.send(message);
                 })
                 .catch(err => console.log(err))
@@ -105,6 +105,7 @@ const checkUser = async (author) => {
 
 global.setBranding = (embed) => {
     embed.setColor('#8666e1');
+    embed.addField("\u200b", "[Join Support](https://discord.gg/w59m9DB)   [Invite Opal](https://discord.com/api/oauth2/authorize?client_id=752293928157446184&permissions=8&scope=bot)");
 }
 
 module.exports = { resendHelp, updateStatus, welcomeGroup, byeGroup, checkUser }
