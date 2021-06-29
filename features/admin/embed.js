@@ -39,7 +39,7 @@ module.exports = {
 
     })
 
-// })
+
 
 async function embed(des, Channel) {
 
