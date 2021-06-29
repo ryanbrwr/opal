@@ -16,11 +16,18 @@ const fs = require('fs');
 global.PREFIX = '!';
 bot.commands = new Discord.Collection();
 
-global.featureFiles = fs.readdirSync('./features').filter(file => file.endsWith('.js')); // made global for help.js
-for (const file of featureFiles) {
-    const feature = require(`./features/${file}`);
-    bot.commands.set(feature.name, feature);
+
+const feature_folders = fs.readdirSync('./features');
+
+ for (const folder of feature_folders) {
+global.feature_files = fs.readdirSync(`./features/${folder}`).filter(file => file.endsWith('.js'));  // made global for help.js
+ for (const file of feature_files) {
+ const feature = require(`./features/${folder}/${file}`); 
+
+bot.commands.set(feature.name, feature);
+ }
 }
+
 
 // Posts the server count to DBL
 dbl.on('posted', () => {
@@ -51,10 +58,17 @@ bot.on('message', (msg) => {
     const isAdmin = msg.member && msg.member.hasPermission("ADMINISTRATOR");
     if (command.admin && !isAdmin) return;
 
+    // ignore all the messages in dm, because there is no Permissions in dm
+    if (msg.channel.type === 'dm') return;
+
     // Execute command, if all checks pass
     helpers.checkUser(msg.author)
-
+try {
     command.execute(msg)
+} catch (err) {
+    msg.reply('an error occurred while attempting to execute this command')
+    console.log(err);
+  }
 });
 
 bot.on('ready', () => {
