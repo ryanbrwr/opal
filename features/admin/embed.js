@@ -43,7 +43,7 @@ module.exports = {
 
 async function embed(des, Channel) {
 
-    const Embed = new MessageEmbed()
+    const Embed = new Discord.MessageEmbed()
 
     .setDescription(des)
     .setColor('RANDOM');
