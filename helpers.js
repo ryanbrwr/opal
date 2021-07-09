@@ -51,40 +51,6 @@ const updateStatus = (bot) => {
     bot.user.setActivity(`${guilds} servers | ${members} people`, { type: "WATCHING" })
 }
 
-const welcomeGroup = (bot, guild) => {
-    guilds = 0;
-    bot.guilds.cache.forEach((guild) => {
-        guilds++
-    })
-    const embed = new Discord.MessageEmbed()
-        .addField("Server Name", guild.name, true)
-        .addField("Server ID", guild.id, true)
-        .addField("Owner", guild.owner ? guild.owner : 'N/A', true)
-        .addField("Region", guild.region, true)
-        .addField("Members", guild.memberCount, true)
-        .addField("Server Count", guilds, true)
-        .setThumbnail(guild.iconURL)
-        .setColor("#61E786")
-    bot.channels.cache.get('770377555089031240').send(embed)
-}
-
-const byeGroup = (bot, guild) => {
-    guilds = 0;
-    bot.guilds.cache.forEach((guild) => {
-        guilds++
-    })
-    const embed = new Discord.MessageEmbed()
-        .addField("Server Name", guild.name, true)
-        .addField("Server ID", guild.id, true)
-        .addField("Owner", guild.owner ? guild.owner : 'N/A', true)
-        .addField("Region", guild.region, true)
-        .addField("Members", guild.memberCount, true)
-        .addField("Server Count", guilds, true)
-        .setThumbnail(guild.iconURL)
-        .setColor("#FF495C")
-    bot.channels.cache.get('770377555089031240').send(embed)
-}
-
 const checkUser = async (author) => {
     mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     User.findOne({ 'userID': author.id }, 'userID', function (err, person) {
