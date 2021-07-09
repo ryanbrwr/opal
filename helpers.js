@@ -74,4 +74,4 @@ global.setBranding = (embed) => {
     embed.addField("\u200b", "[Join Support](https://discord.gg/w59m9DB)   [Invite Opal](https://discord.com/api/oauth2/authorize?client_id=752293928157446184&permissions=8&scope=bot)");
 }
 
-module.exports = { resendHelp, updateStatus, welcomeGroup, byeGroup, checkUser }
+module.exports = { resendHelp, updateStatus, checkUser }
