@@ -72,11 +72,9 @@ bot.on('guildMemberAdd', (member) => {
 
 bot.on('guildCreate', (guild) => {
     helpers.updateStatus(bot)
-    helpers.welcomeGroup(bot, guild)
 })
 bot.on('guildDelete', (guild) => {
     helpers.updateStatus(bot)
-    helpers.byeGroup(bot, guild)
 })
 
 bot.login(process.env.BOT_TOKEN).then(() => {
