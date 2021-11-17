@@ -15,7 +15,7 @@
     "https-proxy-agent": "^5.0.0",
     "leeks.js": "0.0.8",
     "leekslazylogger": "^1.1.9",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "moment": "^2.25.3",
     "mongodb": "^3.5.8",
     "mongoose": "^5.10.11",
