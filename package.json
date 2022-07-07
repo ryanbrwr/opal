@@ -16,7 +16,7 @@
     "leeks.js": "0.0.8",
     "leekslazylogger": "^1.1.9",
     "lodash": "^4.17.19",
-    "moment": "^2.25.3",
+    "moment": "^2.29.4",
     "mongodb": "^3.5.8",
     "mongoose": "^5.10.11",
     "ms": "^2.1.2",
